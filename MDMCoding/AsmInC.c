@@ -1,16 +1,11 @@
-//#include <stdlib.h>
+
 #include <stdio.h>
-#include <string.h>
-//#include <conio.h>
 
 int main()
 {
   int y = 0;
   int x = 255;
   int z = 15;
-  char *str= "Hello World\n";
-  int len = strlen(str);
-  int ret = 0;
 
   asm
   (
