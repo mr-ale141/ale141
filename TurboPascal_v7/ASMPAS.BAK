@@ -1,0 +1,10 @@
+PROGRAM AsmInPascal(INPUT, OUTPUT);
+USES crt;
+VAR
+  y: BYTE;
+BEGIN
+  CLRSCR;
+  y := 65;
+  WRITE(y);
+  READKEY
+END.

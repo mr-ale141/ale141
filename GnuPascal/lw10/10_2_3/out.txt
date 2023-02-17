@@ -1,0 +1,33 @@
+fghj{Hello, World! And Good Bay!}'And Good Bay!'''{}
+BEGIN{Hello, World! And Good Bay!}
+  READ(Ch1, END, BEGIN(END));
+  READLN();;;
+  WRITE();
+  X := D
+END.{Hello, World! And Good Bay!}
+BEGIN
+END.
+BEGIN
+END.jbk
+BEGIN
+  READ(Ch1, END{Hello, World! {! H A Y ! And Good Bay!});
+  READLN(){};
+  DEAR;{}
+  WRITE()
+END.
+BEGIN
+  ;;;;;
+END.
+BEGINE1 := B2 - B5{Hello, World! And Good Bay!}
+END.
+BEGINE := B2;{Hello, World! And Good Bay!}
+  A := B2 * 3 / (10 - 2)
+END.{Hello, World! And Good Bay!}
+BEGINE{}();
+  READ(Ch1, END);
+  READLN('Hello, World! (END) ''BEGIN'' And Good Bay!');
+  DEAR;
+  WRITE((END.
+BEGIN
+  READ(Ch1, END);
+  READLN(;DEAR;WRITE((END.

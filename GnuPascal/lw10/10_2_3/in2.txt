@@ -1,0 +1,1 @@
+fghjENDfhjn{Hello, World! And Good Bay!} 'And Good Bay!' '' {}BEGIN {Hello, World! And Good Bay!} READ(Ch1, END, BEGIN( X     <    =      D  )); RE  ADLN();; IF Ch <    =  D THEN WRITE(); X:= (d > = h) ; X:= d > = h END    .   

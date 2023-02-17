@@ -1,0 +1,177 @@
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ Œ€ŠŽ‘›
+; Cls          ; Ž—ˆ‘’Š€ íªà ­ 
+; Video        ;  ¤à¥á ‚ˆ„…Ž“”…€ ¢ ES
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; Print        ; ¯¥ç âì ‘ˆŒ‚Ž‹€ ¨§ AL
+; Write   Z    ; ¯¥ç âì ‘ˆŒ‚Ž‹€ "Z":    write '#'  ¨«¨: 65, AL, [BX], Y, Y[BX]
+; WriteLN      ; ……‚Ž„ ªãàá®à  ¢ ­ ç «® á«¥¤ãîé¥© áâà®ª¨
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; String       ; ¯¥ç âì ’…Š‘’€  ( ¤à¥á â¥ªáâ  ¨§ DX,  ¤® á¨¬¢®«  '$')
+; Text    Z    ; ¯¥ç âì ’…Š‘’€    ¨§ ¯¥à¥¬¥­­®© "Z",  ¤® á¨¬¢®«  '$')
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; Kursor  Y,X  ; ãáâ ­®¢ª  Š“‘Ž€ ("Y" ®â 0 ¯® 24,"X" ®â 0 ¯® 79): Kursor 5,8
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; Pause        ; €“‡€ (­ ¦ âë© á¨¬¢®« ¢ AL, ¤«ï á¯¥æª®¤ : AL=0 ¨ AH=á¯¥æª®¤)
+; Key          ; ŽŽ‘ ¡¥§ ®¦¨¤ ­¨ï: AX=0 ¯®ª  ­¥ ­ ¦ â®, ­ ¦ â® -ª ª ¢ "Pause"
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; Stop         ; ‡€‚…˜…ˆ… ¯à®£à ¬¬ë (¢¬¥áâ® ª®¬ ­¤ë "Hlt")
+; Obmen   Y,Z  ; ŽŒ… ïç¥¥ª Y ¨ Z (®¤­®¡ ©â®¢ëå):            Obmen [BX],[BX]+1
+; Delay   Z    ; ‡€„…†Š€  ("Z" ¤® 65535):                    Delay 1000
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+; Rnd          ; ‘‹“—€‰Ž… ¢ AX - ®â  0   ¯® 0FFFFh
+; Random X1,X2 ; ‘‹“—€‰Ž… ¢ AX - ®â "X1" ¯® "X2":            Random 100,200
+;ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+;############################################################# â¥ªáâë ¬ ªà®á®¢
+
+;======== Œ€ŠŽ‘› ¤«ï €—€‹€ ¯à®£à ¬¬ë 
+  ;--®ç¨áâª  íªà ­ 
+CLS macro
+  mov AX,3   
+  int 10h
+endm
+
+  ;--­ áâà®©ª  ES ­  ¢¨¤¥®¡ãä¥à
+VIDEO macro
+  mov AX,0B800h
+  mov ES,AX
+endm
+
+;======== Œ€ŠŽ‘› ¤«ï ‡€‚…˜…ˆŸ ¯à®£à ¬¬ë ¨ ŽŽ‘€ ª« ¢¨ âãàë
+  ;--§ ¢¥àè¥­¨¥ ¯à®£à ¬¬ë 
+STOP macro         
+  mov AH,4Ch
+  int 21h   
+endm
+
+  ;--®¦¨¤ ­¨¥ ­ ¦ â¨ï (­ ¦ â®¥ ¢ AL, ¥á«¨ AL=0 ¨«¨ 224, â® ¢ AH -á¯¥æª®¤)
+PAUSE macro
+  mov AH,10h
+  int 16h
+endm
+
+  ;--®¯à®á ª« ¢¨ âãàë ¡¥§ ¯à¨®áâ ­®¢ª¨
+  ;          ¥á«¨ ­¨ç¥£® ­¥ ­ ¦ â®,       â®  AX=0
+  ;          ¥á«¨ ­ ¦ â  ®¡ëç­ ï ª« ¢¨è , â®  AL=­®¬¥à ­ ¦ â®© ª« ¢¨è¨
+  ;          ¥á«¨ ­ ¦ â  á¯¥æª®¤,         â®  AL=0 ¨ AH=á¯¥æª®¤
+KEY macro         
+ Local Key1        ;«®ª «ì­ ï ¬¥âª 
+    mov AH,11h     ;¥áâì «¨ ä ªâ ­ ¦ â¨ï ?  (¥á«¨ ­¥ ­ ¦ â®, â® ä« £ ­ã«ï 1)
+    int 16h    
+      mov AX,0       
+      jz Key1      ;¥á«¨ ­¥ ­ ¦ â® (ZF=1), â® á¤¥« âì AX=0
+    mov AH,10h     ;çâ® ­ ¦ â®: ­ ¦ âë© á¨¬¢®« ¢ AL, ¥á«¨ AL=0 â® ¢ AH -á¯¥æª®¤)
+    int 16h    
+  Key1:            ;¥á«¨ ­¥ ­ ¦ â®, â® AX=0
+endm
+
+;======== Œ€ŠŽ‘› ¤«ï …—€’ˆ ‘ˆŒ‚Ž‹Ž‚ ¨ ’…Š‘’€
+  ;--¯¥ç âì á¨¬¢®«  ¨§ AL
+PRINT macro
+  push AX
+    mov AH,0Eh     
+    int 10h
+  pop AX
+endm
+
+  ;--¯¥ç âì á¨¬¢®«  Z (¨§: AL, '#', 65, [BX], Y, Y[BX] ¨ â.¯.)
+WRITE macro _Z
+  push AX
+    mov AL,_Z
+    mov AH,0Eh     
+    int 10h
+  pop AX
+endm
+
+  ;--¯¥à¥¢®¤ ªãàá®à  ¢ ­ ç «® á«¥¤ãîé¥© áâà®ª¨
+WriteLN macro
+  push AX
+    mov AH,0Eh     
+      mov AL,13
+      int 10h
+    mov AL,10
+    int 10h
+  pop AX
+endm
+
+  ;--¯¥ç âì â¥ªáâ  ( ¤à¥á ¨§ DX,  ¤® á¨¬¢®«  '$')
+STRING macro 
+  push AX 
+    mov AH,09h         
+    int 21h            
+  pop AX 
+endm
+
+  ;--¯¥ç âì â¥ªáâ  ¨§ ¯¥à¥¬¥­­®© Z (¤® ¯¥à¢®£® á¨¬¢®«  '$')
+TEXT macro _Z         
+  push AX 
+  push DX 
+    mov DX,offset _Z
+    mov AH,09h         
+    int 21h            
+  pop DX 
+  pop AX 
+endm
+
+   ;--ãáâ ­®¢ª  ªãàá®à  (Y ®â 0 ¯® 24, X ®â 0 ¯® 79)
+KURSOR macro _Y,_X
+  push AX
+  push BX
+  push DX
+    mov BH,0
+    mov DH,_Y
+    mov DL,_X
+    mov AH,2
+    int 10h
+  pop DX
+  pop BX
+  pop AX
+endm
+
+;======== Œ€ŠŽ‘› ¯à®ç¨¥
+
+   ;--®¡¬¥­ ¡ ©â®¢  (¯ à ¬¥âàë «î¡ë¥, ªà®¬¥ DX,DH,DL -¥áâì ª®¬ ­¤  "xchg")
+OBMEN macro _Y,_X
+  push DX
+    mov DH,_Y
+    mov DL,_X
+      mov _Y,DL
+      mov _X,DH
+  pop DX
+endm
+
+   ;--§ ¤¥à¦ª  (¤® 65535)
+DELAY macro _Z
+ Local Delay1
+ Local Delay2
+  push CX
+  push DX
+    mov DX,_Z
+ Delay1:
+      mov CX,0FFFFh
+  Delay2:
+      loop Delay2
+    dec DX
+    jnz Delay1
+  pop DX
+  pop CX
+endm
+
+   ;--á«ãç ©­®¥ ç¨á«® ¢ AX ®â 0 ¯® FFFFh
+RND macro
+  in AL, 40h
+  mov AH,AL
+  in AL, 40h
+endm
+
+   ;--á«ãç ©­®¥ ç¨á«® ¢ AX ®â _X1 ¯® _X2 (¯à¨ X1>X2 § ¢¨á ¥â!)
+RANDOM macro _X1,_X2
+ Rnd_2:
+  in AL, 40h
+  mov AH,AL
+  in AL, 40h
+    cmp AX, _X1
+    jc Rnd_2
+    cmp AX, _X2
+    ja Rnd_2
+endm

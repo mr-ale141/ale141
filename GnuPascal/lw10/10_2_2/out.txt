@@ -1,0 +1,36 @@
+{Hello, World! And Good Bay!}
+BEGIN {Hello, World! And Good Bay!}
+  READ(Ch1, END, BEGIN(END));
+  READLN();;
+  WRITE()
+END. {Hello, World! And Good Bay!}
+BEGIN
+END
+BEGIN
+END
+BEGIN
+  READ(Ch1, '',END {Hello, World! {! H A Y !} And Good Bay!});
+  READLN() {};
+  DEAR; {}
+  WRITE()
+END.
+BEGIN
+  ;;;
+END.
+BEGIN
+  X1 := B2-B5 {Hello, World! {} And Good Bay!}
+END.
+BEGIN
+  X1 := B2; {Hello, World! And Good Bay!}
+  X1 := B2 * 3 / (10 - 2)
+END.
+BEGIN
+RE{fxghfh}  AD(Ch1, END);
+  READLN('Hello, World! (END) ''BEGIN'' And Good Bay!');
+  DEAR;
+  WRITE((
+END.
+BEGIN
+  READ(Ch1, END);
+  READLN(;DEAR;WRITE((
+END.
