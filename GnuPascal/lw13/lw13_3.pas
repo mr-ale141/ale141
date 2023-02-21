@@ -1,7 +1,7 @@
 PROGRAM Split(INPUT,OUTPUT);
 VAR
   Ch, Next: CHAR;
-  Odds, Evens: TEXT; {Odds - нечетный}
+  Odds, Evens: TEXT; {Odds - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ}
   
 PROCEDURE CopyOut(VAR F1: TEXT; VAR Ch: CHAR);
 BEGIN {CopyOut}
@@ -20,7 +20,7 @@ BEGIN {CopyOut}
 END; {CopyOut}
 
 BEGIN
-  {Разделяет INPUT в Odds и Evens}
+  {пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ INPUT пїЅ Odds пїЅ Evens}
   REWRITE(Odds);
   REWRITE(Evens);
   Next := 'O';
@@ -29,8 +29,8 @@ BEGIN
     BEGIN
       WHILE NOT EOLN
       DO
-        {Прочитать Ch, записать в файл, выбранный через
-        Next, переключить Next}
+        {пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Ch, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        Next, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Next}
         BEGIN
           READ(INPUT, Ch);
           IF Next = 'O'

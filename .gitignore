@@ -1,0 +1,10 @@
+$ cat .gitignore
+*.[oa]
+*~
+*.log
+*.exe
+*.com
+*.cfg
+*.dsk
+*.ini
+*.bak
