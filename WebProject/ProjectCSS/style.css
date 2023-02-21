@@ -1,0 +1,15 @@
+body {
+  background: url(images/frontend-backend.png) no-repeat
+}
+
+h1 {
+  color: #000000;
+  font-size: 24pt;
+  /*font-family: Arial, Verdana, sans-serif;
+  text-align: center*/
+}
+
+p {
+  padding-left: 20px;
+  font-size: 1ex
+}
