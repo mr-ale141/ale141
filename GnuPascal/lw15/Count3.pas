@@ -1,9 +1,9 @@
 UNIT Count3;
 INTERFACE
 
-  PROCEDURE Start; {Обнуление счетчика}
-  PROCEDURE Bump;  {Увеличение счетчика на единицу}
-  PROCEDURE Value(VAR V100, V10, V1: CHAR); {Возвращает значени счетчика}
+PROCEDURE Start; {Обнуление счетчика}
+PROCEDURE Bump;  {Увеличение счетчика на единицу}
+PROCEDURE Value(VAR V100, V10, V1: CHAR); {Возвращает значени счетчика}
 
 IMPLEMENTATION
 VAR
