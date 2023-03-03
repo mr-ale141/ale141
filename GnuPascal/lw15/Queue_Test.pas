@@ -33,11 +33,14 @@ BEGIN
             THEN
               BEGIN
                 HeadQ(Ch);
+                WRITELN(OUTPUT);
                 WRITE(OUTPUT, 'Голова - ', Ch, '; ')
               END;
-      READLN(INPUT);                
+      READLN(INPUT);
+      WRITELN(OUTPUT);                
       WRITE(OUTPUT, 'Queue:');
       WriteQ;
+      WRITELN(OUTPUT);
       WRITELN(OUTPUT, 'E - EmptyQ');
       WRITELN(OUTPUT, 'A''Ch'' - AddQ(Ch)');
       WRITELN(OUTPUT, 'D - DelQ');

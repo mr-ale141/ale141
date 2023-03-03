@@ -1,9 +1,9 @@
 UNIT Count3;
 INTERFACE
 
-PROCEDURE Start; {Обнуление счетчика}
-PROCEDURE Bump;  {Увеличение счетчика на единицу}
-PROCEDURE Value(VAR V100, V10, V1: CHAR); {Возвращает значени счетчика}
+  PROCEDURE Start; {Обнуление счетчика}
+  PROCEDURE Bump;  {Увеличение счетчика на единицу}
+  PROCEDURE Value(VAR V100, V10, V1: CHAR); {Возвращает значени счетчика}
 
 IMPLEMENTATION
 VAR
@@ -40,11 +40,11 @@ BEGIN{Bump}
   THEN
     BEGIN
       NextDigit(Tens);
-      IF Tens= '0'
+      IF Tens = '0'
       THEN
         BEGIN
           NextDigit(Hundreds);
-          IF Hundreds= '0'
+          IF Hundreds = '0'
           THEN
             BEGIN
               Ones := '9';
@@ -63,6 +63,6 @@ BEGIN {Value}
   V1 := Ones
 END; {Value}
 
-BEGIN
+BEGIN {UNIT Count3}
 END. {UNIT Count3}
 

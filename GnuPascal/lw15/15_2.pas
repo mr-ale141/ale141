@@ -1,4 +1,3 @@
-
 PROGRAM TestRemove(INPUT, OUTPUT);
   {Читает строку из входа, пропускает ее через RemoveExtraBlanks}
 USES Queue;
@@ -19,7 +18,7 @@ BEGIN {RemoveExtraBlanks}
   DO
     BEGIN
       DelQ;
-      HeadQ(Ch);
+      HeadQ(Ch)
     END;
   WHILE Ch <> LineEnd
   DO
@@ -37,7 +36,7 @@ BEGIN {RemoveExtraBlanks}
       DO
         BEGIN
           DelQ;
-          HeadQ(Ch);
+          HeadQ(Ch)
         END;    
       {Вставляем пробел между словами}
       IF Ch <> LineEnd
@@ -54,13 +53,13 @@ BEGIN {TestRemove}
   DO
     BEGIN
       READ(INPUT, Ch);
-      WRITE(OUTPUT, Ch);
+      {WRITE(OUTPUT, Ch);}
       AddQ(Ch)
     END;
-  WRITELN(OUTPUT);
+  {WRITELN(OUTPUT);}
   RemoveExtraBlanks;
   WRITE('Выход:');
-  HeadQ(Ch);
+  {HeadQ(Ch);
   WHILE Ch <> '#'
   DO
     BEGIN
@@ -68,6 +67,8 @@ BEGIN {TestRemove}
       DelQ;
       HeadQ(Ch)
     END;
-  WRITELN(OUTPUT)    
+  WRITELN(OUTPUT)}
+  WriteQ;
+  EmptyQ   
 END. {TestRemove} 
 

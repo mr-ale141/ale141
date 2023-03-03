@@ -1,7 +1,7 @@
-PROGRAM Split(INPUT,OUTPUT);
+PROGRAM Split(INPUT, OUTPUT);
 VAR
   Ch, Next: CHAR;
-  Odds, Evens: TEXT; {Odds - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ}
+  Odds, Evens: TEXT;
   
 PROCEDURE CopyOut(VAR F1: TEXT; VAR Ch: CHAR);
 BEGIN {CopyOut}
@@ -15,22 +15,22 @@ BEGIN {CopyOut}
           READ(F1, Ch);
           WRITE(OUTPUT, Ch)
         END;
-      READLN(F1);
+      READLN(F1)
     END  
 END; {CopyOut}
 
-BEGIN
-  {пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ INPUT пїЅ Odds пїЅ Evens}
+BEGIN {Split}
+  {Разделить INPUT в Odds и Evens}
   REWRITE(Odds);
   REWRITE(Evens);
   Next := 'O';
-  WHILE NOT EOF
+  WHILE NOT EOF(INPUT)
   DO
     BEGIN
-      WHILE NOT EOLN
+      WHILE NOT EOLN(INPUT)
       DO
-        {пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Ch, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
-        Next, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Next}
+        {Прочиатать Ch, записатть в файл, выбранный через
+        Next, переключить Next}
         BEGIN
           READ(INPUT, Ch);
           IF Next = 'O'
@@ -55,4 +55,4 @@ BEGIN
   CopyOut(Odds, Ch);
   CopyOut(Evens, Ch);
   WRITELN
-END.
+END. {Split}
