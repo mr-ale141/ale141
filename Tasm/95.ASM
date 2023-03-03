@@ -12,16 +12,18 @@ Start:
   
   mov BX, offset Y
   mov CX, Len
-  mov AX, 0
+  mov AL, 0
 MetSum:
-  add AL, [BX]
+  cmp byte ptr [BX], 2
+  jc Met1
+  cmp byte ptr [BX], 6
   jnc Met1
-  inc AH
-Met1:
+  inc AL  
+Met1:  
   inc BX
   dec CX 
   jnz MetSum
-  CALL DECAX
+  CALL DECAL
   PAUSE                 ;пауза
   STOP                  ;стоп
 
@@ -43,8 +45,8 @@ MASPRINT1:
   ret
 
   NameArr db "Массив", '$'
-  NameSum db "Сумма", '$'
-  Y db 5, 100, 200      ;переменные
+  NameSum db "Макс.", '$'
+  Y db 1, 2, 3, 4, 5, 6      ;переменные
   Len = $ - Y           ;константы
 
   include _dec.pp       ;библиотека подпрограмм
