@@ -1,6 +1,6 @@
 PROGRAM Sum(INPUT, OUTPUT);
 VAR
-  Num, P: INTEGER;  
+  Num: INTEGER;  
 
 PROCEDURE ReadDigit(VAR FIn: TEXT; VAR D: INTEGER);
 VAR
@@ -25,28 +25,36 @@ PROCEDURE ReadNumber(VAR FIn: TEXT; VAR Result: INTEGER);
 VAR 
   Digit: INTEGER; 
 BEGIN {ReadNumber}
-  Result := 0;
+  Result := -1;
   Digit := 0;
-  P := 0;
-  WHILE (NOT EOLN(INPUT)) AND (Digit >= 0)
+  WHILE (NOT EOLN(FIn)) AND (Digit >= 0)
   DO
     BEGIN
-      ReadDigit(INPUT, Digit);
-      P := MAXINT - Result * 10;
-      writeln(Result * 10);
-      IF (Digit >= 0) AND (Digit > P)
+      ReadDigit(FIn, Digit);
+      IF (Digit >=0) AND (Result = -1)
       THEN
-        BEGIN
-          Digit := -1;
-          Result := -2;
-        END;
+        Result := 0;
+      IF (Digit >= 0) AND (Result <> 0)
+      THEN
+        IF (MAXINT DIV Result) < 10
+        THEN
+          BEGIN
+            Digit := -1;
+            Result := -2
+          END
+        ELSE
+          IF (MAXINT DIV Result) = 10
+          THEN
+            IF (MAXINT MOD 10) < Digit
+            THEN  
+              BEGIN
+                Digit := -1;
+                Result := -2
+              END;
       IF Digit >= 0
       THEN
         Result := Result * 10 + Digit
-    END;
-  IF Result = 0
-  THEN
-    Result := -1
+    END
 END; {ReadNumber}
 
 BEGIN {ReadDigitDriver}
