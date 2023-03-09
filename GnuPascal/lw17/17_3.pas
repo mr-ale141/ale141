@@ -1,6 +1,6 @@
 PROGRAM Stat(INPUT, OUTPUT);
 VAR
-  Num, Sum, Count, Min, Max, AverageInt, AverageFloat, Average: INTEGER;  
+  Num, Sum, Count, Min, Max, AverageInt, AverageFloat: INTEGER;  
 
 PROCEDURE ReadDigit(VAR FIn: TEXT; VAR D: INTEGER);
 VAR
@@ -74,37 +74,66 @@ BEGIN {SumInt}
 END; {SumInt}
 
 BEGIN {Stat}
-  WRITELN(MAXINT);
   Num := 0;
   Sum := 0;
   Count := 0;
-  Min := 0;
+  Min := MAXINT;
   Max := 0;
   AverageInt := 0;
   AverageFloat := 0;
-  Average := 0;
   WHILE NOT EOLN(INPUT) AND (Num >= 0)
   DO
     BEGIN
       ReadNumber(INPUT, Num);
       IF Num = -2
       THEN
-        WRITELN('ERROR! Oferflow integer (Num)')
+        WRITELN('ERROR! Oferflow integer (Num).')
       ELSE
         IF Num = -1
         THEN
-          WRITELN('ERROR! Incorrect data')
+          BEGIN
+            WRITELN('WARNING! Incorrect input data.');
+            Num := 0
+          END  
         ELSE
           BEGIN
             IF Count < MAXINT
             THEN
-              Count := Count + 1
+              BEGIN
+                Count := Count + 1;
+                IF Min > Num
+                THEN
+                  Min := Num;
+                IF Max < Num
+                THEN
+                  Max := Num;    
+                SumInt(Sum, Num)
+              END
             ELSE
               BEGIN
-                WRITELN('ERROR! Oferflow integer (Count)');
-                Sum := -2
+                WRITELN('ERROR! Oferflow integer (Count).');
+                Num := -2
               END  
-          END     
+          END;
+      IF Sum = -2
+      THEN
+        BEGIN
+          WRITELN('ERROR! Oferflow integer (Sum).');
+          Num := -2
+        END         
     END;
-  WRITELN('Sum = ', Sum)   
+  IF (Count <> 0) AND (Sum >= 0)
+  THEN
+    BEGIN
+      AverageInt := Sum DIV Count;
+      AverageFloat := ((Sum MOD Count) * 100) DIV Count;
+      IF AverageFloat MOD 10 = 0
+      THEN
+        AverageFloat := AverageFloat DIV 10;
+      WRITELN('Count = ', Count);  
+      WRITELN('Sum = ', Sum);
+      WRITELN('Min = ', Min);
+      WRITELN('Max = ', Max);
+      WRITELN('Average = ', AverageInt, '.', AverageFloat);  
+    END   
 END. {Stat}
