@@ -127,13 +127,19 @@ BEGIN {Stat}
     BEGIN
       AverageInt := Sum DIV Count;
       AverageFloat := ((Sum MOD Count) * 100) DIV Count;
-      IF AverageFloat MOD 10 = 0
-      THEN
-        AverageFloat := AverageFloat DIV 10;
       WRITELN('Count = ', Count);  
       WRITELN('Sum = ', Sum);
       WRITELN('Min = ', Min);
       WRITELN('Max = ', Max);
-      WRITELN('Average = ', AverageInt, '.', AverageFloat);  
+      IF AverageFloat < 10
+      THEN 
+        WRITELN('Average = ', AverageInt, '.0', AverageFloat)
+      ELSE
+        BEGIN  
+          IF AverageFloat MOD 10 = 0
+          THEN
+            AverageFloat := AverageFloat DIV 10;  
+          WRITELN('Average = ', AverageInt, '.', AverageFloat)    
+        END
     END   
 END. {Stat}
