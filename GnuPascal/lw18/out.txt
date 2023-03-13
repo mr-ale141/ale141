@@ -1,0 +1,8 @@
+Student averages:
+Ivanov 4
+Petrov 5
+Sidiriv 4
+Fadeev 3
+
+Class average:
+3.93

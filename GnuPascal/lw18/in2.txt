@@ -1,0 +1,4 @@
+Ivanov 3 3 4 5
+Petrov 5 5 4 6
+Sidiriv 3 4 4 4
+Fadeev 3 3 4 3
