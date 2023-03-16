@@ -15,7 +15,7 @@ SortStart:
 MetSort:
   mov AL, Y[BX]
   mov AH, Y[BX+1]
-  cmp AL, AH  
+  cmp AH, AL  
   jnc MetSort1 
   mov DX, 1
   mov Y[BX], AH
@@ -53,7 +53,7 @@ MASPRINT1:
 
   NameArr db "До   ", '$'
   NameSum db "После", '$'
-  Y db 6, 7, 5, 9, 4, 2      ;переменные
+  Y db 6, 7, 6, 9, 4, 2      ;переменные
   Len = $ - Y           ;константы
 
   include _dec.pp       ;библиотека подпрограмм
