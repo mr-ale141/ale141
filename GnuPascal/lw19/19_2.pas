@@ -43,20 +43,25 @@ BEGIN {SortDate}
           {Копируем D в TFile}
           WRITE(TFile, D);
           {Копируем остаток DateFile в TFile}
-          WHILE EOF(DateFile)
+          IF Copying = FALSE
+          THEN
+            WRITE(TFile, VarDate);
+          WHILE NOT EOF(DateFile)
           DO
             BEGIN
-              READ(DateFile, D);
-              WRITE(TFile, D)
+              READ(DateFile, VarDate);
+              WRITE(TFile, VarDate)
             END;
           {Копируем TFile в DateFile}
           RESET(TFile);
-          WHILE EOF(TFile)
+          REWRITE(DateFile);
+          WHILE NOT EOF(TFile)
           DO
             BEGIN
-              READ(TFile, D);
-              WRITE(DateFile, D)
-            END  
+              READ(TFile, VarDate);
+              WRITE(DateFile, VarDate)
+            END;
+          RESET(DateFile)    
         END
     END;
   {Копируем DateFile в OUTPUT}
