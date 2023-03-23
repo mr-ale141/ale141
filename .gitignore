@@ -8,3 +8,4 @@ $ cat .gitignore
 *.dsk
 *.ini
 *.bak
+*.gpi
