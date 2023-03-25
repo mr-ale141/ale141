@@ -100,4 +100,18 @@ func main() {
 	hyperspace(planets)
 	fmt.Println(planets)                   //[Венера Земля Марс]
 	fmt.Println(strings.Join(planets, "")) //ВенераЗемляМарс
+
+	temperatures := []float64{
+		-28.0, 32.0, -31.0, -29.0, -23.0, -29.0, -28.0, -33.0,
+	}
+
+	frequency := make(map[float64]int)
+
+	for _, t := range temperatures { // Итерирует через срез (индекс, значение)
+		frequency[t]++
+	}
+
+	for t, num := range frequency { // Итерирует через карту (ключ, значение)
+		fmt.Printf("%+.2f встречается %d раз(а) \n", t, num)
+	}
 }
