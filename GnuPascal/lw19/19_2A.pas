@@ -31,7 +31,7 @@ BEGIN {SortDate}
   ReadDate(FInput, VarDate);
   READLN(FInput);
   WRITE(DateFile, VarDate);
-  RESET(DateFile);
+  {RESET(DateFile);}
   WHILE NOT EOF(FInput)
   DO
     {DP 1.1 Поместить новую дату в DateFile в соответствующее место}
@@ -42,40 +42,10 @@ BEGIN {SortDate}
       THEN
         BEGIN
           {DP 1.1.1 Копируем элементы меньше, чем D из DateFile в TFile}
-          REWRITE(TFile);
-          Copying := TRUE;
-          WHILE NOT EOF(DateFile) AND Copying
-          DO
-            BEGIN
-              READ(DateFile, VarDate);
-              IF Less(VarDate, D)
-              THEN
-                WRITE(TFile, VarDate)
-              ELSE
-                Copying := FALSE
-            END;
-          {DP 1.1.2 Копируем D в TFile}
-          WRITE(TFile, D);
+          {Копируем D в TFile}
+          WRITE(DateFile, D);
           {DP 1.1.3 Копируем остаток DateFile в TFile}
-          IF NOT Copying
-          THEN
-            WRITE(TFile, VarDate);
-          WHILE NOT EOF(DateFile)
-          DO
-            BEGIN
-              READ(DateFile, VarDate);
-              WRITE(TFile, VarDate)
-            END;
-          {DP 1.1.4 Копируем TFile в DateFile}
-          RESET(TFile);
-          REWRITE(DateFile);
-          WHILE NOT EOF(TFile)
-          DO
-            BEGIN
-              READ(TFile, VarDate);
-              WRITE(DateFile, VarDate)
-            END;
-          RESET(DateFile)    
+          {DP 1.1.4 Копируем TFile в DateFile}    
         END
     END;
   {DP 1.2 Копируем DateFile в OUTPUT}

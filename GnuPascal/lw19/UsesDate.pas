@@ -11,26 +11,11 @@ INTERFACE
            END;
     FileOfDate = FILE OF Date;
   
-  PROCEDURE WriteDate(VAR FOut: TEXT; VAR Res: Date); {Запись даты в файл}
+  PROCEDURE WriteDate(VAR FOut: TEXT; Res: Date); {Запись даты в файл}
   PROCEDURE ReadDate(VAR FIn: TEXT; VAR Res: Date); {Чтенме даты из файла}
-  PROCEDURE ReadMonth(VAR FIn: TEXT; VAR Mo: Month); {Чтение из файла месяца}
-  PROCEDURE WriteMonth(VAR FOut: TEXT; VAR Mo: Month); {Запись в файл месяца}
-  FUNCTION Less(VAR D1, D2: Date): BOOLEAN; {D1 < D2 ?}
-  PROCEDURE CopyOut(VAR DateFile: FileOfDate); {Печать на экране файла с датами}
+  FUNCTION Less(D1, D2: Date): BOOLEAN; {D1 < D2 ?}
   
 IMPLEMENTATION
-
-PROCEDURE WriteDate(VAR FOut: TEXT; VAR Res: Date);
-BEGIN{WriteDate}
-  WriteMonth(FOut, Res.Mo);
-  WRITE(FOut, Res.Day : 3)
-END;{WriteDate}
-
-PROCEDURE ReadDate(VAR FIn: TEXT; VAR Res: Date);
-BEGIN{ReadDate}
-  ReadMonth(FIn, Res.Mo);
-  READ(FIn, Res.Day)
-END;{ReadDate}
 
 PROCEDURE ReadMonth(VAR FIn: TEXT; VAR Mo: Month);
 VAR
@@ -50,28 +35,40 @@ BEGIN{ReadMonth}
   IF (Ch1 = 'N') AND (Ch2 = 'O') AND (Ch3 = 'V') THEN Mo := Nov ELSE
   IF (Ch1 = 'D') AND (Ch2 = 'E') AND (Ch3 = 'C') THEN Mo := Dec
   ELSE Mo := NoMonth
-END;{ReadMonth}
+END;  {ReadMonth}
 
-PROCEDURE WriteMonth(VAR FOut: TEXT; VAR Mo: Month);
+PROCEDURE WriteMonth(VAR FOut: TEXT; Mo: Month);
 VAR
   Ch1, Ch2, Ch3: CHAR;
 BEGIN {WriteMonth}
-  IF Mo = Jan THEN WRITE('JAN') ELSE
-  IF Mo = Feb THEN WRITE('FEB') ELSE
-  IF Mo = Mar THEN WRITE('MAR') ELSE
-  IF Mo = Apr THEN WRITE('APR') ELSE
-  IF Mo = May THEN WRITE('MAY') ELSE
-  IF Mo = Jun THEN WRITE('JUN') ELSE
-  IF Mo = Jul THEN WRITE('JUL') ELSE
-  IF Mo = Aug THEN WRITE('AUG') ELSE
-  IF Mo = Sep THEN WRITE('SEP') ELSE
-  IF Mo = Oct THEN WRITE('OCT') ELSE
-  IF Mo = Nov THEN WRITE('NOV') ELSE
-  IF Mo = Dec THEN WRITE('DEC')
-  ELSE WRITE('NoMonth')
-END; {WriteMonth}
+  IF Mo = Jan THEN WRITE(FOut, 'JAN') ELSE
+  IF Mo = Feb THEN WRITE(FOut, 'FEB') ELSE
+  IF Mo = Mar THEN WRITE(FOut, 'MAR') ELSE
+  IF Mo = Apr THEN WRITE(FOut, 'APR') ELSE
+  IF Mo = May THEN WRITE(FOut, 'MAY') ELSE
+  IF Mo = Jun THEN WRITE(FOut, 'JUN') ELSE
+  IF Mo = Jul THEN WRITE(FOut, 'JUL') ELSE
+  IF Mo = Aug THEN WRITE(FOut, 'AUG') ELSE
+  IF Mo = Sep THEN WRITE(FOut, 'SEP') ELSE
+  IF Mo = Oct THEN WRITE(FOut, 'OCT') ELSE
+  IF Mo = Nov THEN WRITE(FOut, 'NOV') ELSE
+  IF Mo = Dec THEN WRITE(FOut, 'DEC')
+  ELSE WRITE(FOut, 'NoMonth')
+END;  {WriteMonth}
 
-FUNCTION Less(VAR D1, D2: Date): BOOLEAN;
+PROCEDURE WriteDate(VAR FOut: TEXT; Res: Date);
+BEGIN{WriteDate}
+  WriteMonth(FOut, Res.Mo);
+  WRITE(FOut, Res.Day : 3)
+END;{WriteDate}
+
+PROCEDURE ReadDate(VAR FIn: TEXT; VAR Res: Date);
+BEGIN{ReadDate}
+  ReadMonth(FIn, Res.Mo);
+  READ(FIn, Res.Day)
+END;{ReadDate}
+
+FUNCTION Less(D1, D2: Date): BOOLEAN;
 {Less:= D1 < D2}
 BEGIN {Less}
   IF D1.Mo < D2.Mo
@@ -84,19 +81,6 @@ BEGIN {Less}
     ELSE {D1.Mo = D2.Mo}
       Less := (D1.Day < D2.Day)
 END; {Less}
-
-PROCEDURE CopyOut(VAR DateFile: FileOfDate);
-VAR
-  VarDate: Date;
-BEGIN {CopyOut}
-  WHILE NOT EOF(DateFile)
-  DO
-    BEGIN
-      READ(DateFile, VarDate);
-      WriteDate(OUTPUT, VarDate);
-      WRITELN;
-    END
-END;{CopyOut}
 
 BEGIN
 END.

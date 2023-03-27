@@ -5,6 +5,19 @@ VAR
   D1, D2: Date;
   TFile, DateFile: FileOfDate;
   FInput: TEXT;
+  
+PROCEDURE CopyOut(VAR DateFile: FileOfDate);
+VAR
+  VarDate: Date;
+BEGIN {CopyOut}
+  WHILE NOT EOF(DateFile)
+  DO
+    BEGIN
+      READ(DateFile, VarDate);
+      WriteDate(OUTPUT, VarDate);
+      WRITELN;
+    END
+END;{CopyOut}  
 
 BEGIN{DateIODriver}
   REWRITE(DateFile);

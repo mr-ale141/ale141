@@ -21,39 +21,30 @@ BEGIN {ReadDigit}
     D := -1  
 END; {ReadDigit}
 
-PROCEDURE ReadNumber(VAR FIn: TEXT; VAR Result: INTEGER);
+PROCEDURE ReadNumber(VAR FIn: TEXT; VAR Num: INTEGER);
 VAR 
   Digit: INTEGER; 
 BEGIN {ReadNumber}
-  Result := -1;
+  Num := -1;
   Digit := 0;
   WHILE (NOT EOLN(FIn)) AND (Digit >= 0)
   DO
     BEGIN
       ReadDigit(FIn, Digit);
-      IF (Digit >=0) AND (Result = -1)
+      IF (Digit >=0) AND (Num = -1)
       THEN
-        Result := 0;
-      IF (Digit >= 0) AND (Result <> 0)
+        Num := 0;
+      IF (Digit >= 0) AND (Num <> 0)
       THEN
-        IF (MAXINT DIV Result) < 10
+        IF (Num > (MAXINT - Digit) DIV 10)
         THEN
           BEGIN
             Digit := -1;
-            Result := -2
-          END
-        ELSE
-          IF (MAXINT DIV Result) = 10
-          THEN
-            IF (MAXINT MOD 10) < Digit
-            THEN  
-              BEGIN
-                Digit := -1;
-                Result := -2
-              END;
+            Num := -2
+          END;
       IF Digit >= 0
       THEN
-        Result := Result * 10 + Digit
+        Num := Num * 10 + Digit
     END
 END; {ReadNumber}
 
@@ -87,12 +78,12 @@ BEGIN {Stat}
       ReadNumber(INPUT, Num);
       IF Num = -2
       THEN
-        WRITELN('ERROR! Oferflow integer (Num).')
+        WRITELN(OUTPUT, 'ERROR! Oferflow integer (Num).')
       ELSE
         IF Num = -1
         THEN
           BEGIN
-            WRITELN('WARNING! Incorrect input data.');
+            WRITELN(OUTPUT, 'WARNING! Incorrect input data.');
             Num := 0
           END  
         ELSE
@@ -111,14 +102,14 @@ BEGIN {Stat}
               END
             ELSE
               BEGIN
-                WRITELN('ERROR! Oferflow integer (Count).');
+                WRITELN(OUTPUT, 'ERROR! Oferflow integer (Count).');
                 Num := -2
               END  
           END;
       IF Sum = -2
       THEN
         BEGIN
-          WRITELN('ERROR! Oferflow integer (Sum).');
+          WRITELN(OUTPUT, 'ERROR! Oferflow integer (Sum).');
           Num := -2
         END         
     END;
@@ -127,19 +118,19 @@ BEGIN {Stat}
     BEGIN
       AverageInt := Sum DIV Count;
       AverageFloat := ((Sum MOD Count) * 100) DIV Count;
-      WRITELN('Count = ', Count);  
-      WRITELN('Sum = ', Sum);
-      WRITELN('Min = ', Min);
-      WRITELN('Max = ', Max);
+      WRITELN(OUTPUT, 'Count = ', Count);  
+      WRITELN(OUTPUT, 'Sum = ', Sum);
+      WRITELN(OUTPUT, 'Min = ', Min);
+      WRITELN(OUTPUT, 'Max = ', Max);
       IF AverageFloat < 10
       THEN 
-        WRITELN('Average = ', AverageInt, '.0', AverageFloat)
+        WRITELN(OUTPUT, 'Average = ', AverageInt, '.0', AverageFloat)
       ELSE
         BEGIN  
           IF AverageFloat MOD 10 = 0
-          THEN
+          THEN                                      
             AverageFloat := AverageFloat DIV 10;  
-          WRITELN('Average = ', AverageInt, '.', AverageFloat)    
+          WRITELN(OUTPUT, 'Average = ', AverageInt, '.', AverageFloat)    
         END
     END   
 END. {Stat}
