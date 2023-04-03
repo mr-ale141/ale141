@@ -112,7 +112,7 @@ int main(void)
 {
   char str[100];
   int i = 0;
-  printf("Введите строку для сортировки: ");
+  printf("Insert string for sort: ");
   while ((str[i] = getchar()) != '\n')
   {
     i++;
