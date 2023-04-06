@@ -3,11 +3,8 @@ $ cat .gitignore
 *~
 *.obj
 *.log
-*.exe
-*.com
 *.cfg
 *.dsk
-*.ini
 *.bak
 *.gpi
 .vscode
