@@ -10,3 +10,4 @@ $ cat .gitignore
 *.ini
 *.bak
 *.gpi
+.vscode
