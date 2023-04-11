@@ -1,4 +1,4 @@
-PROGRAM Encryption(INPUT, OUTPUT);
+PROGRAM Decryption(INPUT, OUTPUT);
 CONST
   Len = 20;
 TYPE
@@ -32,17 +32,17 @@ BEGIN {Initialize}
         IF (Status = TRUE)
         THEN
           READLN(StorageCode, CodeCh);
-        Code[LiterCh] := CodeCh
+        Code[CodeCh] := LiterCh
       END
   ELSE
     Status := FALSE;      
   Initialize := Status        
 END; {Initialize}
 
-PROCEDURE Encode(VAR S: Str; LenOfString: IndexType);
+PROCEDURE Uncode(VAR S: Str; LenOfString: IndexType);
 VAR
   Index: IndexType;
-BEGIN {Encode}
+BEGIN {Uncode}
   FOR Index := 1 TO LenOfString
   DO
     IF S[Index] IN [' ' .. '_']
@@ -51,9 +51,9 @@ BEGIN {Encode}
     ELSE
       WRITE(S[Index]);
   WRITELN
-END;  {Encode}
+END;  {Uncode}
 
-BEGIN {Encryption}
+BEGIN {Decryption}
   ASSIGN(StorageCode, 'code.txt');
   {инициализировать Code}
   StatusInit := Initialize(StorageCode, Code);
@@ -74,9 +74,9 @@ BEGIN {Encryption}
         READLN(INPUT);
         WRITELN(OUTPUT);
         {распечатать кодирование сообщение}
-        Encode(Msg, I)
+        Uncode(Msg, I)
       END
   ELSE
     WRITELN(OUTPUT, 'Eror code file!');    
-END.  {Encryption}
+END.  {Decryption}
 

@@ -1,6 +1,6 @@
 PROGRAM Encryption(INPUT, OUTPUT);
 CONST
-  Len = 20;
+  Len = 255;
 TYPE
   Str = ARRAY [1 .. Len] OF CHAR;
   Chiper = ARRAY [' ' .. '_'] OF CHAR;
@@ -47,10 +47,9 @@ BEGIN {Encode}
   DO
     IF S[Index] IN [' ' .. '_']
     THEN
-      WRITE(Code[S[Index]])
+      WRITE(OUTPUT, Code[S[Index]])
     ELSE
-      WRITE(S[Index]);
-  WRITELN
+      WRITE(OUTPUT, S[Index])
 END;  {Encode}
 
 BEGIN {Encryption}
@@ -69,12 +68,11 @@ BEGIN {Encryption}
           BEGIN
             I := I + 1;
             READ(INPUT, Msg[I]);
-            WRITE(OUTPUT, Msg[I])
           END;
         READLN(INPUT);
-        WRITELN(OUTPUT);
         {распечатать кодирование сообщение}
-        Encode(Msg, I)
+        Encode(Msg, I);
+        WRITELN(OUTPUT)
       END
   ELSE
     WRITELN(OUTPUT, 'Eror code file!');    
