@@ -16,7 +16,7 @@ main()
     scanf("%d", &C);
     P = (A + B + C) / 2;
     S = sqrt(P * (P - A) * (P - B) * (P - C));
-    printf("Площадь треугольника равна: %.2f\n", S);
+    printf("Площадь треугольника равна: %.2f", S);
     getch();
     return 0;
   }
