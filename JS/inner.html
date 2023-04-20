@@ -1,0 +1,43 @@
+<body>
+  <p>Параграф</p>
+  <div>DIV</div>
+  <input value="Нажми меня" onclick="alert('Клик!')" type="button">
+  <script>
+    /*console.log(document.body.textContent); // читаем текущее содержимое
+    setTimeout(function() {
+      document.body.textContent = 'Новый <strong>BODY!</strong>'
+    }, 3000); // заменяем содержимое*/
+    const div = document.createElement('div');
+    div.className = 'alert alert_success';
+    div.innerHTML = '<strong>Ура!</strong> Вы прочитали это важное сообщение.';
+    const parentElem = document.body;
+    parentElem.appendChild(div);
+  </script>
+  <input id="elem1" type="button" value="Нажми меня"/>
+  <script>
+    function handler1() {
+      alert('Спасибо!');
+    }
+    function handler2() {
+      alert('Спасибо ещё раз!');
+      elem.removeEventListener("click", handler2);
+    }
+    const elem1 = document.getElementById('elem1');
+    elem1.onclick = () => alert("Привет");
+    elem1.addEventListener("click", handler1); // Спасибо!
+    elem1.addEventListener("click", handler2); // Спасибо ещё раз!
+  </script>
+  <br>
+  <input type="button" value="Нажми меня" id="elem2">
+  <span>Посмотри консоль</span>
+  <script>
+    const elem2 = document.getElementById('elem2');
+    console.log("Hello!");
+    elem2.onclick = function(event) {
+      // вывести тип события, элемент и координаты клика
+      console.log(event.type + " на " + event.currentTarget);
+      console.log("Координаты: " + event.clientX + ":" + event.clientY);
+    }
+  </script>
+
+</body>
