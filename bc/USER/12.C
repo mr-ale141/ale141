@@ -19,5 +19,13 @@ main()
 
     printf("%d^%d = %d\n", N, K, S);
 
+    for (I=2; I<=K; I+=2)
+      S >> 1;
+    if (K % 2 != 0) S*=N;
+
+    printf("%d^%d = %d\n", N, K, S);
+
+
+
     getch();
   }
