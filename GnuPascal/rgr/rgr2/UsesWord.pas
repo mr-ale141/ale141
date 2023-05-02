@@ -2,7 +2,7 @@ UNIT UsesWord;
 
 INTERFACE
   
-   FUNCTION GetWord(VAR Fin: TEXT): STRING;        {прочитать слово из файла}
+   FUNCTION GetWord(VAR Fin: TEXT): STRING;        {прочитать слово из файла, '' - файл пуст }
    FUNCTION StrToSmall(Str: STRING): STRING;       {преобразование строки в строчные буквы}
     
 IMPLEMENTATION
@@ -46,7 +46,7 @@ BEGIN {GetWord}
     THEN
       GetWord := GetWord(FIn)
     ELSE
-      GetWord := ''       
+      GetWord := ''        
 END; {GetWord}
 
  

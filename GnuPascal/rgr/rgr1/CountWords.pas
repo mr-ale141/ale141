@@ -9,7 +9,7 @@ CONST
 VAR
   FIn, FOut: TEXT;
   I: INTEGER;
-     
+  Word: STRING;    
 BEGIN {CountWords}
   ASSIGN(FIn, NameFileIn);
   ASSIGN(FOut, NameFileOut);
@@ -18,7 +18,12 @@ BEGIN {CountWords}
   I := 0;
   WHILE (I <= MaxLenTree) AND NOT EOF(FIn) 
   DO
-    I := InsertInTree(StrToSmall(GetWord(FIn)));
+    BEGIN
+      Word := GetWord(FIn);
+      IF Word <> ''
+      THEN
+        I := InsertInTree(StrToSmall(Word))
+    END;      
   REWRITE(Fout);
   WriteTree(FOut)
 END. {CountWords}

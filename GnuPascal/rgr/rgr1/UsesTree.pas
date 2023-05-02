@@ -98,13 +98,15 @@ BEGIN {PrintTree}
     BEGIN
       WriteElt(FOut, Ptr^.Left);
       WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
-      WriteElt(FOut, Ptr^.Right)
+      WriteElt(FOut, Ptr^.Right);
+      DISPOSE(Ptr)
     END
 END;  {PrintTree}
 
 PROCEDURE WriteTree(VAR FOut: TEXT);
 BEGIN {WriteTree}
-  WriteElt(FOut, Root)
+  WriteElt(FOut, Root);
+  Root := NIL
 END; {WriteTree}
 
 BEGIN
