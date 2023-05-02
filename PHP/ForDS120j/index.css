@@ -1,6 +1,8 @@
 html {
-  background: url(./fon.jpg);
+  background: url(./fon.jpg) no-repeat;
   background-size: cover;
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 body {
@@ -16,18 +18,18 @@ h1 {
 .aforizm {
   padding: 50px 50px 0;
   text-indent: 50px;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 1.5;
-  margin: 20px 150px 0;
+  margin: 0 20px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .author {
   padding: 20px 50px 50px;
+  margin: 0 20px;
   text-indent: 100px;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 1.5;
-  margin: 0 150px;
   background-color: rgba(0, 0, 0, 0.5);
   color: gold;
   text-align: end;
@@ -43,6 +45,6 @@ a {
   font-weight: 900;
   text-decoration: none;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   color: indigo;
 }

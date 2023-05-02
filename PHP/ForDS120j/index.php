@@ -19,14 +19,15 @@
       print "Couldn't connect to the database: " . $e->getMessage();
     }
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
+
     $q = $db->query('SELECT COUNT(*) FROM aforizms');
     $count = $q->fetch()['COUNT(*)'];
-    $rand_num = rand(1, $count+1);
+    $rand_num = rand(1, $count + 1);
 
-    $rand_aforizm = $db->query("SELECT aforizm, author
-                                FROM aforizms
-                                WHERE aforizm_id = $rand_num"
+    $rand_aforizm = $db->query(
+      "SELECT aforizm, author
+      FROM aforizms
+      WHERE aforizm_id = $rand_num"
     )->fetch();
     $db = NULL;
     print($rand_aforizm['aforizm']);
@@ -38,5 +39,4 @@
     ?>
   </p>
 </body>
-
 </html>
