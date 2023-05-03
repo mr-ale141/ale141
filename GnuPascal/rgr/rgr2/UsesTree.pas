@@ -159,22 +159,58 @@ VAR
 BEGIN {MergeTreeAndFile}
   Ptr:= NIL;
   WordBuf := '';
-  CountBuf := 0;
+  CountBuf := 0; 
+  WHILE (NOT EOF(FBufer)) AND (Root <> NIL)
+  DO
+    BEGIN
+      IF WordBuf = ''
+      THEN
+        BEGIN
+          WordBuf := ReadWord(FBufer);
+          READLN(FBufer, CountBuf)
+        END;
+      IF Ptr = NIL
+      THEN  
+        Ptr := PopSmallElt(Root); 
+      IF (WhoIsSmaller(WordBuf, Ptr^.Word) = 2)
+      THEN
+        BEGIN
+          WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
+          DISPOSE(Ptr);
+          Ptr := NIL
+        END
+      ELSE
+        IF WhoIsSmaller(WordBuf, Ptr^.Word) = 1
+        THEN
+          BEGIN 
+            WRITELN(FOut, WordBuf, ' ', CountBuf);
+            WordBuf := '';
+            CountBuf := 0
+          END
+        ELSE
+          BEGIN  
+            WRITELN(FOut, WordBuf, ' ', CountBuf + Ptr^.Count); 
+            DISPOSE(Ptr);
+            Ptr := NIL;
+            WordBuf := '';
+            CountBuf := 0
+          END
+    END;  
   WHILE (NOT EOF(FBufer)) OR (Root <> NIL)
   DO
-    BEGIN 
-      WHILE (NOT EOF(FBufer)) AND (Root <> NIL)
-      DO
+    BEGIN             
+      IF (WordBuf = '') AND (NOT EOF(FBufer))
+      THEN
         BEGIN
-          IF WordBuf = ''
-          THEN
-            BEGIN
-              WordBuf := ReadWord(FBufer);
-              READLN(FBufer, CountBuf)
-            END;
-          IF Ptr = NIL
-          THEN  
-            Ptr := PopSmallElt(Root); 
+          WordBuf := ReadWord(FBufer);
+          READLN(FBufer, CountBuf)
+        END;
+      IF (Ptr = NIL) AND (Root <> NIL)
+      THEN
+        Ptr := PopSmallElt(Root);
+      IF (Ptr <> NIL) AND (WordBuf <> '')
+      THEN
+        BEGIN
           IF (WhoIsSmaller(WordBuf, Ptr^.Word) = 2)
           THEN
             BEGIN
@@ -198,30 +234,23 @@ BEGIN {MergeTreeAndFile}
                 WordBuf := '';
                 CountBuf := 0
               END
-        END;    
-      IF (WordBuf = '') AND (NOT EOF(FBufer))
-      THEN
-        BEGIN
-          WordBuf := ReadWord(FBufer);
-          READLN(FBufer, CountBuf)
-        END;
-      IF (Ptr = NIL) AND (Root <> NIL)
-      THEN
-        Ptr := PopSmallElt(Root);  
-      IF WordBuf <> '' 
-      THEN
-        BEGIN
-          WRITELN(FOut, WordBuf, ' ', CountBuf);
-          WordBuf := '';
-          CountBuf := 0
-        END;
-      IF Ptr <> NIL 
-      THEN
-        BEGIN
-          WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
-          DISPOSE(Ptr);
-          Ptr := NIL
-        END   
+        END
+      ELSE    
+        IF WordBuf <> '' 
+        THEN
+          BEGIN
+            WRITELN(FOut, WordBuf, ' ', CountBuf);
+            WordBuf := '';
+            CountBuf := 0
+          END
+        ELSE
+          IF Ptr <> NIL 
+          THEN
+            BEGIN
+              WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
+              DISPOSE(Ptr);
+              Ptr := NIL
+            END           
     END
 END; {MergeTreeAndFile}
 

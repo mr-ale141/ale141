@@ -30,8 +30,8 @@ BEGIN {CountWords}
           IF Word <> ''
           THEN
             InsertInTree(StrToSmall(Word));
-          Count := Count + 1  
+          Count := Count + 1
         END;     
-      WriteTree(FOut);
+      WriteTree(FOut)
     END    
 END. {CountWords}
