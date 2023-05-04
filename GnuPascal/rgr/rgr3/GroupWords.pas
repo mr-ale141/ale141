@@ -2,23 +2,55 @@ PROGRAM GroupWords(INPUT, OUTPUT);
 
 USES UsesStemmer;
 
+CONST
+  NameFileIn = 'words.txt';
+  NameFileOut = 'group.txt';
 VAR
-  Word: STRING;
+  Word, PreWord: STRING;
   Ch: CHAR;
-  Count: INTEGER;
+  Count, CountSum: INTEGER;
+  FIn, FOut: TEXT;
 BEGIN {GroupWords}
-  WHILE NOT EOF(INPUT)
+  ASSIGN(FIn, NameFileIn);
+  ASSIGN(FOut, NameFileOut);
+  RESET(FIn);
+  REWRITE(FOut);
+  CountSum := 0;
+  PreWord := '';
+  WHILE NOT EOF(FIn)
   DO
     BEGIN
-      READ(INPUT, Ch);
+      READ(FIn, Ch);
       Word := '';
       WHILE Ch <> ' '
       DO
         BEGIN
           Word := Word + Ch;
-          READ(INPUT, Ch)
-        END;
-      READLN(INPUT, Count);
-      WRITELN(GetBase(Word), ' ', Count)
+          READ(FIn, Ch)
+        END;  
+      READLN(FIn, Count);
+      IF (GetBase(PreWord) = GetBase(Word))
+      THEN
+        BEGIN
+          PreWord := Word;
+          WRITE(FOut, ',', Word);
+          CountSum := CountSum + Count
+        END
+      ELSE
+        IF CountSum <> 0
+        THEN
+          BEGIN
+            WRITELN(FOut, ': ', CountSum);
+            CountSum := 0;
+            PreWord := Word;
+            WRITE(FOut, Word);
+            CountSum := CountSum + Count
+          END 
+        ELSE
+          BEGIN
+            PreWord := Word;
+            WRITE(FOut, Word);
+            CountSum := CountSum + Count
+          END
     END
 END. {GroupWords}
