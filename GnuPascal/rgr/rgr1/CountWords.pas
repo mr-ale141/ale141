@@ -14,9 +14,9 @@ BEGIN {CountWords}
   ASSIGN(FIn, NameFileIn);
   ASSIGN(FOut, NameFileOut);
   RESET(FIn);
-  InitTree();
-  I := 0;
-  WHILE (I <= MaxLenTree) AND NOT EOF(FIn) 
+  InitTree();  
+  I := 1;
+  WHILE (I < MaxLenTree) AND NOT EOF(FIn) 
   DO
     BEGIN
       Word := GetWord(FIn);
@@ -25,5 +25,5 @@ BEGIN {CountWords}
         I := InsertInTree(StrToSmall(Word))
     END;      
   REWRITE(Fout);
-  WriteTree(FOut)
+  WriteTree(Fout)
 END. {CountWords}

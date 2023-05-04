@@ -2,11 +2,9 @@ UNIT UsesTree;
 
 INTERFACE
 
-      
-    
-  PROCEDURE InitTree();                           {инициализация пустого дерева}
+  PROCEDURE InitTree();                   {инициализация пустого дерева}
   PROCEDURE InsertInTree(WordIn: STRING); {добавить слово в дерево возвращает кол-во элементов в дереве}
-  PROCEDURE WriteTree(VAR FOut: TEXT);            {слияние дерева в файлом}
+  PROCEDURE WriteTree(VAR FOut: TEXT);    {слияние дерева в файлом}
   
 IMPLEMENTATION
 

@@ -23,30 +23,42 @@ BEGIN {GetWord}
                      OR (Ch >= 'À') OR (Ch = '¨') OR (Ch = '¸') 
                      OR (Ch = '-') OR (Ch = '''') )
   DO
-    IF Str <> ''
+    IF Ch <> '-'
     THEN
       BEGIN 
         Str := Str + Ch;
         Read(FIn, Ch)
       END
     ELSE
-      IF Ch <> '-'
+      IF EOLN(FIn)
       THEN
-        BEGIN 
-          Str := Str + Ch;
-          Read(FIn, Ch)
+        BEGIN
+          READLN(FIn);
+          Ch := ' ';
+          WHILE (Ch = ' ') AND (NOT EOF(FIn))
+          DO
+            Read(FIn, Ch)  
         END
       ELSE
-        Read(FIn, Ch);
+        BEGIN
+          Str := Str + Ch;   
+          Read(FIn, Ch)
+        END;      
   If Str <> ''
-  THEN      
-    GetWord := Str
+  THEN
+    BEGIN
+      WHILE Str[Length(Str)] = '-'
+      DO
+        Delete(Str, Length(Str), 1);
+      WHILE (Str[1] = '-') AND (Str <> '')
+      DO
+        Delete(Str, 1, 1)
+    END;
+  IF (Str = '') AND (NOT EOF(FIn))
+  THEN
+    GetWord := GetWord(FIn)
   ELSE
-    IF NOT EOF(FIn)
-    THEN
-      GetWord := GetWord(FIn)
-    ELSE
-      GetWord := ''       
+    GetWord := Str       
 END; {GetWord}
 
  
