@@ -2,16 +2,13 @@ UNIT UsesStemmer;
 
 INTERFACE
   
-  FUNCTION SubGerund(Word: STRING): STRING;
-  FUNCTION GetRV(Word: STRING): STRING;
-  FUNCTION GetR2(Word: STRING): STRING;
-  FUNCTION GetR1(Word: STRING): STRING;
+  FUNCTION GetBase(Word: STRING): STRING;
   
 IMPLEMENTATION
 
 TYPE
   SetChar = SET OF CHAR;
-  ArrString = ARRAY [1 .. 36] OF STRING;
+  ArrString = ARRAY [1 .. 40] OF STRING;
 
 CONST
   VOWELS: SetChar = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
@@ -35,36 +32,90 @@ CONST
   SUPERLATIVE: ArrString = ('ейш', 'ейше');
   DERIVATIONAL: ArrString = ('ост', 'ость');
   
-FUNCTION SubGerund(Word: STRING): STRING;
+FUNCTION CheckLastStr(Word: STRING; LastStr: ArrString): STRING;
 VAR
-  I, Position: INTEGER;
-  WordRV, SubStr: STRING;
-  Found: BOOLEAN;
-BEGIN {SubGerund}    
-  WordRV := GetRv(Word);
+  I: INTEGER;
+  SubStr, PreSubStr: STRING;
+BEGIN {CheckLastStr}
   SubStr := '';
-  Found := FALSE;
-  FOR I := Low(GERUND_1) TO High(GERUND_1)
+  PreSubStr := '';
+  I := 1;
+  WHILE Length(LastStr[I]) <> 0
   DO
     BEGIN
-      Position := Pos(GERUND_1[I], WordRV);
-      IF Position = Length(WordRV) - Length(SubStr) + 1
+      SubStr := Copy(Word, Length(Word) - Length(LastStr[I]) + 1, Length(LastStr[I]));
+      IF (SubStr = LastStr[I]) AND (Length(SubStr) > Length(PreSubStr))
       THEN
-        IF (WordRV[Position] = 'а') OR (WordRV[Position] = 'я')
-        THEN
-          IF Length(GERUND_1[I]) > Length(SubStr)
-          THEN
-            BEGIN
-              Found := TRUE;
-              SubStr := GERUND_1[I]
-            END
+        PreSubStr := SubStr;
+      SubStr := '';   
+      I := I + 1      
     END;
-  IF Found = TRUE
+  CheckLastStr := PreSubStr 
+END; {CheckLastStr}
+
+FUNCTION GetAdjective(WordRV: STRING): STRING;
+VAR
+  SubStr: STRING;
+BEGIN {SubAdjective}
+  GetAdjective := CheckLastStr(WordRV, ADJECTIVE)
+END; {SubAdjective}
+
+FUNCTION GetReflexive(WordRV: STRING): STRING;
+VAR
+  SubStr: STRING;
+BEGIN {SubGerund}
+  GetReflexive := CheckLastStr(WordRV, REFLEXIVE)
+END; {SubGerund} 
+
+FUNCTION GetVerb(WordRV: STRING): STRING;
+VAR
+  SubStr, Str: STRING;
+BEGIN {SubGerund}
+  SubStr := CheckLastStr(WordRV, VERB_1);
+  IF (SubStr <> '') AND ((WordRV[Length(WordRV) - Length(SubStr)] = 'а') 
+                          OR ((WordRV[Length(WordRV) - Length(SubStr)] = 'я')))
   THEN
-    Delete(WordRV, Length(WordRV) - Length(SubStr) + 1, Length(SubStr));
-  SubGerund := WordRV  
-END; {SubGerund}                               
+    Str := SubStr
+  ELSE
+    Str := CheckLastStr(WordRV, VERB_2);  
+  GetVerb := Str  
+END; {SubGerund}  
+
+FUNCTION GetNoun(WordRV: STRING): STRING;
+VAR
+  SubStr: STRING;
+BEGIN {SubGerund}
+  GetNoun := CheckLastStr(WordRV, NOUN)
+END; {SubGerund}
+
+FUNCTION GetDerivational(WordR2: STRING): STRING;
+VAR
+  SubStr: STRING;
+BEGIN {SubGerund}
+  GetDerivational := CheckLastStr(WordR2, DERIVATIONAL) 
+END; {SubGerund}
+
+FUNCTION GetSuperlative(WordR2: STRING): STRING;
+VAR
+  SubStr: STRING;
+BEGIN {SubGerund}
+  GetSuperlative := CheckLastStr(WordR2, SUPERLATIVE)
+END; {SubGerund}
   
+FUNCTION GetGerund(WordRV: STRING): STRING;
+VAR
+  SubStr, Str: STRING;
+BEGIN {SubGerund}
+  SubStr := CheckLastStr(WordRV, GERUND_1);
+  IF (SubStr <> '') AND ((WordRV[Length(WordRV) - Length(SubStr)] = 'а') 
+                          OR ((WordRV[Length(WordRV) - Length(SubStr)] = 'я')))
+  THEN
+    Str := SubStr
+  ELSE
+    Str := CheckLastStr(WordRV, GERUND_2);
+  GetGerund := Str  
+END; {SubGerund}                                                    
+
 FUNCTION GetRV(Word: STRING): STRING;
 VAR
   I: INTEGER;
@@ -143,6 +194,84 @@ BEGIN {GetR2}
   GetR2 := WordR2;
 END; {GetR2}
 
+FUNCTION DelEndWord(Word: STRING; SubStr: STRING): STRING;
+BEGIN {DelSubStr}
+  Delete(Word, Length(Word) - Length(SubStr) + 1, Length(SubStr));
+  DelEndWord := Word
+END; {DelSubStr} 
+
+FUNCTION GetBase(Word: STRING): STRING;
+VAR
+  Str, WordRV, WordR2: STRING;
+BEGIN {GetBase}
+  WordRV := GetRV(Word);
+  Str := GetGerund(WordRV);
+  IF Str = ''
+  THEN
+    BEGIN
+      Str := GetReflexive(WordRV);
+      IF Str <> ''
+      THEN
+        BEGIN
+          Word := DelEndWord(Word, Str);
+          WordRV := DelEndWord(WordRV, Str);
+          Str := ''
+        END;
+      Str := GetAdjective(WordRV);
+      IF Str = ''
+      THEN
+        BEGIN
+          Str := GetVerb(WordRV);
+          IF Str = ''
+          THEN
+            Str := GetNoun(WordRV)
+        END 
+    END;
+  IF Str <> ''
+  THEN
+    BEGIN
+      Word := DelEndWord(Word, Str);
+      WordRV := DelEndWord(WordRV, Str);
+      Str := ''
+    END;
+  IF Word[Length(Word)] = 'и'
+  THEN
+    Delete(Word, Length(Word), 1);
+  IF WordRV[Length(WordRV)] = 'и'
+  THEN
+    Delete(WordRV, Length(WordRV), 1);    
+  WordR2 := GetR2(Word);    
+  Str := GetDerivational(WordR2);
+  IF Str <> ''
+  THEN
+    BEGIN
+      Word := DelEndWord(Word, Str);
+      WordRV := DelEndWord(WordRV, Str);
+      Str := ''
+    END;
+  IF 'нн' = Copy(Word, Length(Word) - 1, 2)
+  THEN
+    Delete(Word, Length(Word), 1)
+  ELSE
+    BEGIN
+      Str := GetSuperlative(WordRV);
+      IF Str <> ''
+      THEN
+        BEGIN
+          Word := DelEndWord(Word, Str);
+          WordRV := DelEndWord(WordRV, Str);
+          Str := '';
+          IF 'нн' = Copy(Word, Length(Word) - 1, 2)
+          THEN
+            Delete(Word, Length(Word), 1)
+        END
+      ELSE      
+        IF 'ь' = Copy(Str, Length(Str), 1)
+        THEN
+          Delete(Str, Length(Str), 1)
+    END;
+  GetBase := Word
+END; {GetBase}
+
 BEGIN
-END.
-   
+END.  

@@ -14,7 +14,7 @@ main()
     int x, temp;
     clrscr();
     randomize();
-    for (x=1; x<=N; x++) A[x]=0;
+    for (x=0; x<=N; x++) A[x]=0;
     for (temp=0; temp<N; temp++)
       {
 	do
