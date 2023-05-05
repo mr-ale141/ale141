@@ -1,12 +1,11 @@
 PROGRAM CountWords(INPUT, OUTPUT);
 
 USES UsesWord; {CP1251}
-USES UsesTree; {MaxLenTree = 1000}
+USES UsesStorage;
 
 CONST
   NameFileIn = 'waw.txt';
   NameFileOut = 'words.txt';
-  MaxLenTree = 1000;
   
 VAR
   FIn, FOut: TEXT;

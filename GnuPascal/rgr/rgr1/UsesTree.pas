@@ -1,9 +1,10 @@
 UNIT UsesTree;
 
 INTERFACE
+USES UsesWord;
 
   CONST
-    MaxLenTree = 1000;    
+    MaxLenTree = 10;    
     
   PROCEDURE InitTree();                           {инициализация пустого дерева}
   FUNCTION InsertInTree(WordIn: STRING): INTEGER; {добавить слово в дерево возвращает кол-во элементов в дереве}
@@ -21,39 +22,6 @@ IMPLEMENTATION
   VAR
     Root: Tree;
     LenTree: INTEGER; 
-    
-FUNCTION WhoIsSmaller(W1, W2: STRING): INTEGER;
-VAR
-  Index1, Index2: INTEGER;
-  Answer: INTEGER;
-BEGIN {IsSmaller}
-  Index1 := 1;
-  Index2 := 1;
-  Answer := 0;
-  WHILE ((Index1 <= Length(W1)) AND (Index2 <= Length(W2))) AND (Answer = 0)
-  DO
-    BEGIN {WHILE}
-      IF (W1[Index1] < W2[Index2])
-      THEN {Ch1 < Ch2 или F1 короче F2}
-        Answer := 1
-      ELSE
-        IF (W1[Index2] > W2[Index1])
-        THEN {Ch1 > Ch2 или F2 короче F1}
-          Answer := 2;
-      Index1 := Index1 + 1;
-      Index2 := Index2 + 1        
-    END; {WHILE}   
-  IF Answer = 0
-  THEN
-    IF Index1 <= Length(W1)
-    THEN
-      Answer := 2
-    ELSE
-      IF Index2 <= Length(W2)
-      THEN
-        Answer := 1;      
-  WhoIsSmaller := Answer        
-END; {IsSmaller} 
 
 PROCEDURE InitTree();
 BEGIN {InitTree}
@@ -74,11 +42,11 @@ BEGIN {Insert}
       LenTree := LenTree + 1
     END
   ELSE
-    IF WhoIsSmaller(Ptr^.Word, WordIn) = 2
+    IF GetLess(Ptr^.Word, WordIn) = 2
     THEN
       Insert(Ptr^.Left, WordIn)
     ELSE
-      IF WhoIsSmaller(Ptr^.Word, WordIn) = 1
+      IF GetLess(Ptr^.Word, WordIn) = 1
       THEN
         Insert(Ptr^.Right, WordIn)
       ELSE

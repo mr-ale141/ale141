@@ -4,8 +4,27 @@ INTERFACE
   
    FUNCTION GetWord(VAR Fin: TEXT): STRING;        {прочитать слово из файла}
    FUNCTION StrToSmall(Str: STRING): STRING;       {преобразование строки в строчные буквы}
+   FUNCTION GetLess(W1, W2: STRING): INTEGER;
     
 IMPLEMENTATION
+
+FUNCTION IsAlpha(Ch: CHAR): BOOLEAN;
+BEGIN {IsAlpha}
+  IsAlpha := ( ((Ch >= 'A') AND (Ch <= 'Z')) OR ((Ch >= 'a') AND (Ch <= 'z')) 
+                     OR (Ch >= 'А') OR (Ch = 'Ё') OR (Ch = 'ё') 
+                     OR (Ch = '-') OR (Ch = '''') )
+END; {IsAlpha}
+
+FUNCTION DelExtHyphen(Str: STRING): STRING;
+BEGIN {DelExtHyphen}
+  WHILE Str[Length(Str)] = '-'
+  DO
+    Delete(Str, Length(Str), 1);
+  WHILE (Str[1] = '-') AND (Str <> '')
+  DO
+    Delete(Str, 1, 1);
+  DelExtHyphen := Str
+END; {DelExtHyphen}
 
 FUNCTION GetWord(VAR FIn: TEXT): STRING;
 VAR
@@ -14,14 +33,10 @@ VAR
 BEGIN {GetWord}
   Ch := ' ';
   Str := '';
-  WHILE NOT EOF(FIn) AND ((Ch < 'A') OR (Ch > 'Z')) AND ((Ch < 'a') OR (Ch > 'z')) 
-                     AND (Ch < 'А') AND (Ch <> 'Ё') AND (Ch <> 'ё') 
-                     AND (Ch <> '-') AND (Ch <> '''')
+  WHILE NOT EOF(FIn) AND NOT IsAlpha(Ch)
   DO
     READ(FIn, Ch);
-  WHILE NOT EOF(FIn) AND ( ((Ch >= 'A') AND (Ch <= 'Z')) OR ((Ch >= 'a') AND (Ch <= 'z')) 
-                     OR (Ch >= 'А') OR (Ch = 'Ё') OR (Ch = 'ё') 
-                     OR (Ch = '-') OR (Ch = '''') )
+  WHILE NOT EOF(FIn) AND IsAlpha(Ch)
   DO
     IF Ch <> '-'
     THEN
@@ -45,16 +60,9 @@ BEGIN {GetWord}
           Str := Str + Ch;   
           Read(FIn, Ch)
         END;      
-  If Str <> ''
+  IF Str <> ''
   THEN
-    BEGIN
-      WHILE Str[Length(Str)] = '-'
-      DO
-        Delete(Str, Length(Str), 1);
-      WHILE (Str[1] = '-') AND (Str <> '')
-      DO
-        Delete(Str, 1, 1)
-    END;
+    Str := DelExtHyphen(Str);
   IF (Str = '') AND (NOT EOF(FIn))
   THEN
     GetWord := GetWord(FIn)
@@ -62,7 +70,38 @@ BEGIN {GetWord}
     GetWord := Str       
 END; {GetWord}
 
- 
+FUNCTION GetLess(W1, W2: STRING): INTEGER;
+VAR
+  Index1, Index2: INTEGER;
+  Answer: INTEGER;
+BEGIN {IsSmaller}
+  Index1 := 1;
+  Index2 := 1;
+  Answer := 0;
+  WHILE ((Index1 <= Length(W1)) AND (Index2 <= Length(W2))) AND (Answer = 0)
+  DO
+    BEGIN {WHILE}
+      IF (W1[Index1] < W2[Index2])
+      THEN {Ch1 < Ch2 или F1 короче F2}
+        Answer := 1
+      ELSE
+        IF (W1[Index2] > W2[Index1])
+        THEN {Ch1 > Ch2 или F2 короче F1}
+          Answer := 2;
+      Index1 := Index1 + 1;
+      Index2 := Index2 + 1        
+    END; {WHILE}   
+  IF Answer = 0
+  THEN
+    IF Index1 <= Length(W1)
+    THEN
+      Answer := 2
+    ELSE
+      IF Index2 <= Length(W2)
+      THEN
+        Answer := 1;      
+  GetLess := Answer        
+END; {IsSmaller}  
 
 FUNCTION StrToSmall(Str: STRING): STRING;
 VAR
