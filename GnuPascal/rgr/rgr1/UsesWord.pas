@@ -33,6 +33,7 @@ BEGIN {GetWord}
       IF EOLN(FIn)
       THEN
         BEGIN
+          Str := Str + Ch;
           READLN(FIn);
           Ch := ' ';
           WHILE (Ch = ' ') AND (NOT EOF(FIn))

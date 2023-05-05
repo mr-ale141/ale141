@@ -61,7 +61,7 @@ BEGIN {IsSmaller}
     ELSE
       IF Index2 <= Length(W2)
       THEN
-        Answer := 1;      
+        Answer := 1;             
   WhoIsSmaller := Answer        
 END; {IsSmaller} 
 
@@ -75,8 +75,8 @@ BEGIN {Insert}
   IF Ptr = NIL
   THEN
     BEGIN {Создать лист со значением Data}
-      NEW(Ptr);
-      Ptr^.Word := WordIn;
+      NEW(Ptr);      
+      Ptr^.Word := WordIn;     
       Ptr^.Count := 1;
       Ptr^.Left := NIL;
       Ptr^.Right := NIL
@@ -103,7 +103,7 @@ BEGIN {PrintTree}
   IF Ptr <> NIL
   THEN  {Печатает поддерево слева, вершину, поддерево справа}
     BEGIN
-      WriteElt(FOut, Ptr^.Left);
+      WriteElt(FOut, Ptr^.Left);     
       WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
       WriteElt(FOut, Ptr^.Right);
       DISPOSE(Ptr)
@@ -126,7 +126,7 @@ BEGIN {ReadWord}
           Word := Word + Ch;
           READ(F, Ch) 
         END
-    END;
+    END;    
   ReadWord := Word  
 END; {ReadWord}
 
@@ -145,7 +145,7 @@ BEGIN
   THEN
     ParentElt^.Left := Ptr^.Right
   ELSE
-    Root := Ptr^.Right; 
+    Root := Ptr^.Right;    
   PopSmallElt := Ptr      
 END;
 
@@ -169,11 +169,11 @@ BEGIN {MergeTreeAndFile}
         END;
       IF Ptr = NIL
       THEN  
-        Ptr := PopSmallElt(Root); 
+        Ptr := PopSmallElt(Root);       
       IF (WhoIsSmaller(WordBuf, Ptr^.Word) = 2)
       THEN
         BEGIN
-          WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
+          WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);       
           DISPOSE(Ptr);
           Ptr := NIL
         END
@@ -181,19 +181,19 @@ BEGIN {MergeTreeAndFile}
         IF WhoIsSmaller(WordBuf, Ptr^.Word) = 1
         THEN
           BEGIN 
-            WRITELN(FOut, WordBuf, ' ', CountBuf);
+            WRITELN(FOut, WordBuf, ' ', CountBuf);         
             WordBuf := '';
             CountBuf := 0
           END
         ELSE
           BEGIN  
-            WRITELN(FOut, WordBuf, ' ', CountBuf + Ptr^.Count); 
+            WRITELN(FOut, WordBuf, ' ', CountBuf + Ptr^.Count);             
             DISPOSE(Ptr);
             Ptr := NIL;
             WordBuf := '';
             CountBuf := 0
-          END
-    END;  
+          END;         
+    END;     
   WHILE (NOT EOF(FBufer)) OR (Root <> NIL)
   DO
     BEGIN             
@@ -205,10 +205,10 @@ BEGIN {MergeTreeAndFile}
         END;
       IF (Ptr = NIL) AND (Root <> NIL)
       THEN
-        Ptr := PopSmallElt(Root);
+        Ptr := PopSmallElt(Root);        
       IF (Ptr <> NIL) AND (WordBuf <> '')
       THEN
-        BEGIN
+        BEGIN               
           IF (WhoIsSmaller(WordBuf, Ptr^.Word) = 2)
           THEN
             BEGIN
@@ -226,7 +226,7 @@ BEGIN {MergeTreeAndFile}
               END
             ELSE
               BEGIN  
-                WRITELN(FOut, WordBuf, ' ', CountBuf + Ptr^.Count); 
+                WRITELN(FOut, WordBuf, ' ', CountBuf + Ptr^.Count);
                 DISPOSE(Ptr);
                 Ptr := NIL;
                 WordBuf := '';
@@ -237,7 +237,7 @@ BEGIN {MergeTreeAndFile}
         IF WordBuf <> '' 
         THEN
           BEGIN
-            WRITELN(FOut, WordBuf, ' ', CountBuf);
+            WRITELN(FOut, WordBuf, ' ', CountBuf);          
             WordBuf := '';
             CountBuf := 0
           END
@@ -245,11 +245,26 @@ BEGIN {MergeTreeAndFile}
           IF Ptr <> NIL 
           THEN
             BEGIN
-              WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);
+              WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);    
               DISPOSE(Ptr);
               Ptr := NIL
-            END           
-    END
+            END                      
+    END;
+    IF WordBuf <> '' 
+    THEN
+      BEGIN
+        WRITELN(FOut, WordBuf, ' ', CountBuf);          
+        WordBuf := '';
+        CountBuf := 0
+      END
+    ELSE
+      IF Ptr <> NIL 
+      THEN
+        BEGIN
+          WRITELN(FOut, Ptr^.Word, ' ', Ptr^.Count);    
+          DISPOSE(Ptr);
+          Ptr := NIL
+        END
 END; {MergeTreeAndFile}
 
 PROCEDURE WriteTree(VAR FOut: TEXT);

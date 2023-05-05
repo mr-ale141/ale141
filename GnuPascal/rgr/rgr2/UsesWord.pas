@@ -33,6 +33,7 @@ BEGIN {GetWord}
       IF EOLN(FIn)
       THEN
         BEGIN
+          Str := Str + Ch;
           READLN(FIn);
           Ch := ' ';
           WHILE (Ch = ' ') AND (NOT EOF(FIn))
@@ -57,8 +58,8 @@ BEGIN {GetWord}
   IF (Str = '') AND (NOT EOF(FIn))
   THEN
     GetWord := GetWord(FIn)
-  ELSE
-    GetWord := Str        
+  ELSE   
+    GetWord := Str
 END; {GetWord}
 
  
