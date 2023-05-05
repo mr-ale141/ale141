@@ -11,13 +11,24 @@ CONST
 VAR
   FIn, FOut: TEXT;
   Count: INTEGER;
-  Word: STRING;     
+  Word: STRING;
+  
+PROCEDURE ClearScr();
+VAR
+  I, J: INTEGER;
+BEGIN {ClearScr}
+  FOR I := 0 TO 44
+  DO
+    WRITELN
+END; {ClearScr}       
 
 BEGIN {CountWords}
+  ClearScr();
   ASSIGN(FIn, NameFileIn);
   ASSIGN(FOut, NameFileOut);
   RESET(FIn);
   REWRITE(FOut);
+  WRITE(OUTPUT, 'I''m doing ');
   WHILE NOT EOF(FIn)
   DO
     BEGIN
@@ -31,7 +42,10 @@ BEGIN {CountWords}
           THEN
             InsertInTree(StrToSmall(Word));
           Count := Count + 1
-        END;     
-      WriteTree(FOut)
-    END    
+        END;       
+      WriteTree(FOut);
+      WRITE('.')
+    END;                            
+  WRITELN(OUTPUT);
+  WRITE(OUTPUT, 'Done!');      
 END. {CountWords}
