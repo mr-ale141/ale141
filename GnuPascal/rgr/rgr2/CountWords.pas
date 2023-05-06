@@ -5,46 +5,33 @@ USES UsesStorage;
 
 CONST
   NameFileIn = 'waw.txt';
-  NameFileOut = 'words.txt';
+  NameFileStorage = 'storage.txt';
   
 VAR
-  FIn, FOut: TEXT;
-  Count: INTEGER;
+  FIn: TEXT;     
   Word: STRING;
   
-PROCEDURE ClearScr();
-VAR
-  I, J: INTEGER;
-BEGIN {ClearScr}
-  FOR I := 0 TO 44
-  DO
-    WRITELN
-END; {ClearScr}       
-
 BEGIN {CountWords}
-  ClearScr();
   ASSIGN(FIn, NameFileIn);
-  ASSIGN(FOut, NameFileOut);
+  {$I-}
   RESET(FIn);
-  REWRITE(FOut);
-  WRITE(OUTPUT, 'I''m doing ');
-  WHILE NOT EOF(FIn)
-  DO
-    BEGIN
-      InitTree();
-      Count := 0;
-      WHILE (Count <= MaxLenTree) AND NOT EOF(FIn) 
+  {$I+}
+  IF IOresult<>0 
+  THEN
+    WRITELN('ERROR! File ''', NameFileIn, ''' not found!')
+  ELSE
+    BEGIN   
+      WRITELN(OUTPUT, 'I''m doing ');
+      InitStorage(NameFileStorage);
+      WHILE NOT EOF(FIn)
       DO
-        BEGIN
+        BEGIN 
           Word := GetWord(FIn);
           IF Word <> ''
           THEN
-            InsertInTree(StrToSmall(Word));
-          Count := Count + 1
-        END;       
-      WriteTree(FOut);
-      WRITE('.')
-    END;                            
-  WRITELN(OUTPUT);
-  WRITE(OUTPUT, 'Done!');      
+            InsertInStorage(StrToSmall(Word))
+        END;
+      CloseStorage();  
+      WRITELN(OUTPUT, 'Done!')
+    END       
 END. {CountWords}

@@ -4,7 +4,7 @@ INTERFACE
   
    FUNCTION GetWord(VAR Fin: TEXT): STRING;        {прочитать слово из файла, '' - файл пуст }
    FUNCTION StrToSmall(Str: STRING): STRING;       {преобразование строки в строчные буквы}
-   FUNCTION GetLess(W1, W2: STRING): INTEGER;
+   FUNCTION GetLess(W1, W2: STRING): INTEGER;      {возвращает меньшее или 0 еслы равны}
     
 IMPLEMENTATION
 
