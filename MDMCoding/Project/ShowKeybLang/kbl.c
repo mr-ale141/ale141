@@ -14,12 +14,21 @@ int main()
 {
     char com_number;
     char com_file_str[9] = "\\\\.\\COM";
-    printf("COM port #: ");
+    printf("COM port # [1-9]: ");
     scanf("%c", &com_number);
+    while (getchar() != '\n')
+    {
+        continue;
+    }
     while (com_number < '1' || com_number > '9')
     {
         MessageBox(NULL, "Invalid number com port", "Error", MB_OK);
+        printf("\nCOM port # [1-9]: ");
         scanf("%c", &com_number);
+        while (getchar() != '\n')
+        {
+            continue;
+        }
     }
     com_file_str[7] = com_number;
     com_file_str[8] = '\0';
