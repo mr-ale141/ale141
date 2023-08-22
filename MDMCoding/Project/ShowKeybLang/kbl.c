@@ -12,11 +12,24 @@ unsigned short get_current_keyboard_layout(HWND hwnd){
  
 int main()
 {
+    char com_number;
+    char com_file_str[9] = "\\\\.\\COM";
+    printf("COM port #: ");
+    scanf("%c", &com_number);
+    while (com_number < '1' || com_number > '9')
+    {
+        MessageBox(NULL, "Invalid number com port", "Error", MB_OK);
+        scanf("%c", &com_number);
+    }
+    com_file_str[7] = com_number;
+    com_file_str[8] = '\0';
+    printf("\nStart port COM%c\n", com_number);
+
     HWND hwnd;
     unsigned short langID;
 
     HANDLE Port;
-    Port = CreateFile("\\\\.\\COM3", GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
+    Port = CreateFile(com_file_str, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (Port == INVALID_HANDLE_VALUE)
     {
         MessageBox(NULL, "Serial port cannot be opened", "Error", MB_OK);
