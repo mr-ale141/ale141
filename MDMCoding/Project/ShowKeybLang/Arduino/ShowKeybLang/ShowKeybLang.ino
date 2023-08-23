@@ -21,20 +21,25 @@ void loop() {
   if (Serial.available() > 0) {
     val = Serial.read();
     switch (val) {
-      case 82:  //'R'
+      case 'R':
         digitalWrite(RuLangPin, HIGH);
         digitalWrite(EnLangPin, LOW);
         digitalWrite(OtherLangPin, LOW);
         break;
-      case 69:  //'E'
+      case 'E':
         digitalWrite(RuLangPin, LOW);
         digitalWrite(EnLangPin, HIGH);
         digitalWrite(OtherLangPin, LOW);
         break; 
-      case 79:  //'O'
+      case 'O':
         digitalWrite(RuLangPin, LOW);
         digitalWrite(EnLangPin, LOW);
         digitalWrite(OtherLangPin, HIGH);
+        break;  
+      case 'Q':
+        digitalWrite(RuLangPin, LOW);
+        digitalWrite(EnLangPin, LOW);
+        digitalWrite(OtherLangPin, LOW);
         break;     
     }
      
