@@ -43,7 +43,7 @@ int main()
     */
     com_file_str[7] = com_number;
     com_file_str[8] = '\0';
-    printf("\nStart port COM%c\nPress 'Q' to exit\n", com_number);
+    printf("\nStart port COM%c\n", com_number);
     
 
     // Open Port
