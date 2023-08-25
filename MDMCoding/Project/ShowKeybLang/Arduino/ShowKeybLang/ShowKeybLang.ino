@@ -1,7 +1,7 @@
 int val = 0;
 int RuLangPin = 10;
-int EnLangPin = 11;
-int OtherLangPin = 12;
+int EnLangPin = 12;
+int OtherLangPin = 11;
 void setup() {
   
   Serial.begin(9600);
@@ -10,9 +10,9 @@ void setup() {
   pinMode(EnLangPin, OUTPUT);
   pinMode(OtherLangPin, OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(RuLangPin, LOW);
-  digitalWrite(EnLangPin, LOW);
-  digitalWrite(OtherLangPin, LOW);
+  digitalWrite(RuLangPin, HIGH);
+  digitalWrite(EnLangPin, HIGH);
+  digitalWrite(OtherLangPin, HIGH);
   digitalWrite(LED_BUILTIN, LOW);
 }
 
@@ -22,26 +22,26 @@ void loop() {
     val = Serial.read();
     switch (val) {
       case 'R':
-        digitalWrite(RuLangPin, HIGH);
-        digitalWrite(EnLangPin, LOW);
-        digitalWrite(OtherLangPin, LOW);
-        break;
-      case 'E':
         digitalWrite(RuLangPin, LOW);
         digitalWrite(EnLangPin, HIGH);
-        digitalWrite(OtherLangPin, LOW);
-        break; 
-      case 'O':
-        digitalWrite(RuLangPin, LOW);
+        digitalWrite(OtherLangPin, HIGH);
+        break;
+      case 'E':
+        digitalWrite(RuLangPin, HIGH);
         digitalWrite(EnLangPin, LOW);
         digitalWrite(OtherLangPin, HIGH);
+        break; 
+      case 'O':
+        digitalWrite(RuLangPin, HIGH);
+        digitalWrite(EnLangPin, HIGH);
+        digitalWrite(OtherLangPin, LOW);
         break;    
     } 
      
   } else {
-      digitalWrite(RuLangPin, LOW);
-      digitalWrite(EnLangPin, LOW);
-      digitalWrite(OtherLangPin, LOW);
+      digitalWrite(RuLangPin, HIGH);
+      digitalWrite(EnLangPin, HIGH);
+      digitalWrite(OtherLangPin, HIGH);
   }
   delay(1);        // delay in between reads for stability
 }

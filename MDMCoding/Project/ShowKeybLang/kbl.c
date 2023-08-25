@@ -50,7 +50,9 @@ int main()
     Port = CreateFile(com_file_str, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (Port == INVALID_HANDLE_VALUE)
     {
-        MessageBox(NULL, "Serial port cannot be opened", "Error", MB_OK);
+        char str[40];
+        sprintf(str, "Serial port COM%c cannot be opened!", com_number);
+        MessageBox(NULL, str, "Error", MB_OK);
         ExitProcess(1);
     }
 
