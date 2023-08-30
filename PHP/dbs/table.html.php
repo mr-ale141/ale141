@@ -6,7 +6,7 @@
 </head>
 <body>
   <p>Table:</p>
-  <table>
+  <table border="1" cellpadding="4">
     <?php 
       echo "<th>No.</th>";
       $keys = array_keys($table[0]);

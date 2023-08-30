@@ -99,6 +99,6 @@
   );
   $all_ref_word = $q->fetchAll(PDO::FETCH_ASSOC);
 
-  $table = $all_ref_word;
+  $table = $raiting_table_ref;
   include 'table.html.php';
   
