@@ -19,7 +19,7 @@ int main()
     DCB dcb;
     HANDLE Port;
     BOOL fSuccess;
-    char com_number = '3';
+    char com_number = '5';
     char com_file_str[9] = "\\\\.\\COM";
     unsigned char dst[1];
     unsigned long size;
@@ -43,7 +43,7 @@ int main()
     */
     com_file_str[7] = com_number;
     com_file_str[8] = '\0';
-    printf("\nStart port COM%c\n", com_number);
+    printf("Press any key to EXIT\nStart port COM%c\n", com_number);
     
 
     // Open Port
@@ -76,6 +76,7 @@ int main()
             default: dst[0] = 'O'; break;
         }
         WriteFile(Port, dst, 1, &size, 0);
+        if (kbhit()) break;
     }
 
     CloseHandle(Port);
