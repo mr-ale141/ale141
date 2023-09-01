@@ -19,9 +19,10 @@ int main()
     DCB dcb;
     HANDLE Port;
     BOOL fSuccess;
-    char com_number = '5';
+    char com_number = '3';
     char com_file_str[9] = "\\\\.\\COM";
-    unsigned char dst[1];
+    unsigned char dst[1] = {' '};
+    unsigned char oldDst[1];
     unsigned long size;
 
     // Get Lang Var
@@ -68,6 +69,7 @@ int main()
     // Stream KeyB Lang in COM PORT
     while (1)
     {
+        oldDst[0] = dst[0];
         hwnd = GetForegroundWindow();
         langID = get_current_keyboard_layout(hwnd);
         switch(langID){
@@ -75,8 +77,12 @@ int main()
             case 0x0419: dst[0] = 'R'; break;
             default: dst[0] = 'O'; break;
         }
-        WriteFile(Port, dst, 1, &size, 0);
-        if (kbhit()) break;
+        if (oldDst[0] != dst[0]) WriteFile(Port, dst, 1, &size, 0);
+        if (kbhit()) {
+            dst[0] = 'Q';
+            WriteFile(Port, dst, 1, &size, 0);
+            break;
+        }
     }
 
     CloseHandle(Port);

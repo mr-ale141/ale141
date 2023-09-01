@@ -35,13 +35,14 @@ void loop() {
         digitalWrite(RuLangPin, HIGH);
         digitalWrite(EnLangPin, HIGH);
         digitalWrite(OtherLangPin, LOW);
-        break;    
+        break;  
+      case 'Q':
+        digitalWrite(RuLangPin, HIGH);
+        digitalWrite(EnLangPin, HIGH);
+        digitalWrite(OtherLangPin, HIGH);
+        break;     
     } 
      
-  } else {
-      digitalWrite(RuLangPin, HIGH);
-      digitalWrite(EnLangPin, HIGH);
-      digitalWrite(OtherLangPin, HIGH);
   }
   delay(1);        // delay in between reads for stability
 }
