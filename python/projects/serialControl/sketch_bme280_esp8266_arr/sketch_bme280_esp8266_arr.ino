@@ -89,7 +89,7 @@ void setup() {
     Serial.println("Read old data from EEPROM");   
   }
   updateFlashData();
-  ticker.attach(10, itsTime);
+  ticker.attach(600, itsTime);
 }
  
 void loop(){
