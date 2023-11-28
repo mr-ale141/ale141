@@ -89,34 +89,34 @@ void setup() {
     Serial.println("Read old data from EEPROM");   
   }
   updateFlashData();
-  sendDataInSerial();
-  ticker.attach(600, itsTime);
+  ticker.attach(10, itsTime);
 }
  
 void loop(){
+  sendDataInSerial();
   if (!isWait)
   {
     updateFlashData();
   }
-  WiFiClient client = server.available();               // Получаем данные, посылаемые клиентом 
+  WiFiClient client = server.available();
   if (client) {                                         
-//    Serial.println("New Client.");                      // Отправка "Новый клиент"
-    String currentLine = "";                            // Создаем строку для хранения входящих данных от клиента
-    while (client.connected()) {                        // Пока есть соединение с клиентом 
-      if (client.available()) {                         // Если клиент активен 
-        char c = client.read();                         // Считываем посылаемую информацию в переменную "с"
-//        Serial.write(c);                                // Отправка в Serial port 
+    Serial.println("New Client.");
+    String currentLine = "";
+    while (client.connected()) {
+      if (client.available()) { 
+        char c = client.read();
+        Serial.write(c);
         header += c;
-        if (c == '\n') {                                // Вывод HTML страницы 
+        if (c == '\n') {
           if (currentLine.length() == 0) {
-            client.println("HTTP/1.1 200 OK");          // Стандартный заголовок HT
+            client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html ");
-            client.println("Connection: close");        // Соединение будет закрыто после завершения ответа
-            client.println("Refresh: 600");              // Автоматическое обновление каждые 10 мин 
+            client.println("Connection: close");
+            client.println("Refresh: 600"); 
             client.println();
-            client.println("<!DOCTYPE html><html>");    // Веб-страница создается с использованием HTML
+            client.println("<!DOCTYPE html><html>");
             client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-            client.println("<meta charset='UTF-8'>");   // Делаем русскую кодировку
+            client.println("<meta charset='UTF-8'>");
             client.println("<link rel=\"icon\" href=\"data:,\">");
             client.println("<style>body { text-align: center; font-family: \"Trebuchet MS\", Arial;}");
             client.println("table { border-collapse: collapse; width:40%; margin-left:auto; margin-right:auto; }");
@@ -132,10 +132,10 @@ void loop(){
             client.println(bme.readTemperature());
             client.println(" *C</span></td></tr>");    
             client.println("<tr><td>Давление</td><td><span class=\"sensor\">");
-            client.println(aver_sens() / 100.0F);
+            client.println(FlashData.pressure / 100.0F);
             client.println(" hPa</span></td></tr>");
             client.println("<tr><td>Давление</td><td><span class=\"sensor\">");
-            client.print(int(aver_sens() * 0.0075006375541921));
+            client.println(int(FlashData.pressure * 0.0075006375541921));
             client.println(" mmHg</span></td></tr>");
             client.println("<tr><td>Влажность</td><td><span class=\"sensor\">");
             client.println(bme.readHumidity());
@@ -154,6 +154,7 @@ void loop(){
                                                                          FlashData.pressure_array[3] / 100.0F, 
                                                                          FlashData.pressure_array[4] / 100.0F, 
                                                                          FlashData.pressure_array[5] / 100.0F);
+            client.println();
             client.println("</p></html>");
             client.println();
             break;
@@ -164,13 +165,17 @@ void loop(){
           currentLine += c;      
         }
       }
+      else
+      {
+        Serial.println("Client not available.");
+        break;
+      }
     }
     header = "";
     client.stop();
-//    Serial.println("Client disconnected.");
-//    Serial.println("");
+    Serial.println("Client disconnected.");
+    Serial.println("");
   }
-  sendDataInSerial();
 }
 
 void itsTime()
