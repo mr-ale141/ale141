@@ -43,6 +43,16 @@
      <item>
       <widget class="QLCDNumber" name="hum"/>
      </item>
+     <item>
+      <widget class="QLineEdit" name="msg"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sendButton">
+       <property name="text">
+        <string>Send</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">

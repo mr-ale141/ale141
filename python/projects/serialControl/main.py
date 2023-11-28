@@ -38,9 +38,15 @@ def onOpen():
 def onClose():
     serial.close()
 
+def onSend():
+    msg = ui.msg.displayText()
+    serial.writeData(bytes(msg, 'ascii'))
+    ui.msg.clear()
+
 serial.readyRead.connect(onRead)
 ui.openButton.clicked.connect(onOpen)
 ui.closeButton.clicked.connect(onClose)
+ui.sendButton.clicked.connect(onSend)
 
 ui.show()
 app.exec()

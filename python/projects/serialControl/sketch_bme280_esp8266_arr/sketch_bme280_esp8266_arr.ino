@@ -9,14 +9,22 @@
 #include <ESP_EEPROM.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
+#include <Adafruit_GFX.h>    // Core graphics library
+#include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
+#include <SPI.h>
 
 #include <Adafruit_BME280.h>                            // Подключаем библиотеку Adafruit_BME280
 #include <Adafruit_Sensor.h>                            // Подключаем библиотеку Adafruit_Sensor
  
 #define SEALEVELPRESSURE_HPA (1013.25)                  // Задаем высоту
+#define TFT_DC D3 // TFT DC pin is connected
+#define TFT_RST D4 // TFT RST pin is connected
+#define TFT_CS -1 // TFT CS pin is NOT connected
+Adafruit_ST7789 tft = Adafruit_ST7789(TFT_CS, TFT_DC, TFT_RST);
  
 Adafruit_BME280 bme;                                    // Установка связи по интерфейсу I2C
 Ticker ticker;
+Ticker tickerTft;
  
 const char* ssid = "Neon400";          // Название Вашей WiFi сети
 const char* password = "Zanoza21";     // Пароль от Вашей WiFi сети
@@ -37,6 +45,9 @@ struct FlashDataStruct {
 } FlashData;
 
 boolean isWait = true;
+boolean isWaitTft = true;
+String tftStr;
+uint16_t color;
  
 WiFiServer server(80);                                  // Указываем порт Web-сервера
 String header;
@@ -47,6 +58,10 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org");
 void setup() {
   Serial.begin(115200);                                 // Скорость передачи 115200
   bool status;
+  
+  tft.init(240, 240, SPI_MODE2);
+  tft.fillScreen(ST77XX_BLACK);
+  color = 0x0821;
                                                        
   if (!bme.begin(0x76)) {                               // Проверка инициализации датчика
     Serial.println("Could not find a valid BME280 sensor, check wiring!"); // Печать, об ошибки инициализации.
@@ -90,13 +105,75 @@ void setup() {
   }
   updateFlashData();
   ticker.attach(600, itsTime);
+  tickerTft.attach(10, itsTimeTft);
 }
  
 void loop(){
-  sendDataInSerial();
+  if (Serial.available()) {
+      char ch = Serial.read();
+      if (ch == 'f')
+      {
+        tft.enableDisplay(false);
+        Serial.println("Display OFF OK!");
+      }
+      else if (ch == 't')
+      {
+        tft.enableDisplay(true);
+        Serial.println("Display ON OK!");
+      }
+      else if (ch == 'r')
+      {
+        color = ST77XX_RED;
+        Serial.println("OK!");
+      }
+      else if (ch == 'g')
+      {
+        color = ST77XX_GREEN;
+        Serial.println("OK!");
+      }
+      else if (ch == 'b')
+      {
+        color = ST77XX_BLUE;
+        Serial.println("OK!");
+      }
+      else if (ch == 'w')
+      {
+        color = ST77XX_WHITE;
+        Serial.println("OK!");
+      }
+      else if (ch == 'c')
+      {
+        color = ST77XX_CYAN;
+        Serial.println("OK!");
+      }
+      else if (ch == 'm')
+      {
+        color = ST77XX_MAGENTA;
+        Serial.println("OK!");
+      }
+      else if (ch == 'y')
+      {
+        color = ST77XX_YELLOW;
+        Serial.println("OK!");
+      }
+      else if (ch == 'o')
+      {
+        color = ST77XX_ORANGE;
+        Serial.println("OK!");
+      }
+      else if (ch == 's')
+      {
+        color = 0x0821;
+        Serial.println("OK!");
+      }
+  }
   if (!isWait)
   {
     updateFlashData();
+  }
+  if (!isWaitTft)
+  {
+    printTftData();
   }
   WiFiClient client = server.available();
   if (client) {                                         
@@ -181,6 +258,11 @@ void loop(){
 void itsTime()
 {
   isWait = false;
+}
+
+void itsTimeTft()
+{
+  isWaitTft = false;
 }
 
 unsigned long aver_sens() {
@@ -269,4 +351,38 @@ void updateFlashData()
   Serial.printf("%02d:%02d:%02d", FlashData.hour, FlashData.minute, FlashData.seconds);
   Serial.println();
   isWait = true;
+}
+
+void drawtext(String text, int x, int y) {
+  tft.setCursor(x, y);
+  tft.setTextColor(color);
+  tft.setTextSize(2);
+  tft.setTextWrap(true);
+  tft.print(text);
+}
+
+void printTftData()
+{
+  sendDataInSerial();
+  tft.fillScreen(ST77XX_BLACK);
+  tftStr = "Temp : " + String(bme.readTemperature()) + " *C";
+  drawtext(tftStr, 0, 0);
+  tftStr = "Press: " + String(FlashData.pressure / 100.0F) + " hPa";
+  drawtext(tftStr, 0, 20);
+  tftStr = "Press: " + String(int(FlashData.pressure * 0.0075006375541921)) + " mmHg";
+  drawtext(tftStr, 0, 40);
+  tftStr = "Hum  : " + String(bme.readHumidity()) + " %";
+  drawtext(tftStr, 0, 60);
+  tftStr = "Delta: " + String(FlashData.delta);
+  drawtext(tftStr, 0, 80);
+  tftStr = "Time : " + String(FlashData.hour) + ':' + String(FlashData.minute) + ':' + String(FlashData.seconds);
+  drawtext(tftStr, 0, 100);
+  tftStr = "[ " + String(FlashData.pressure_array[0] / 100.0F) + " ]\n" +
+           "[ " + String(FlashData.pressure_array[1] / 100.0F) + " ]\n" +
+           "[ " + String(FlashData.pressure_array[2] / 100.0F) + " ]\n" +
+           "[ " + String(FlashData.pressure_array[3] / 100.0F) + " ]\n" +
+           "[ " + String(FlashData.pressure_array[4] / 100.0F) + " ]\n" +
+           "[ " + String(FlashData.pressure_array[5] / 100.0F) + " ]\n";
+  drawtext(tftStr, 0, 120);
+  isWaitTft = true;
 }
