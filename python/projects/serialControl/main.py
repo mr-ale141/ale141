@@ -21,17 +21,14 @@ def onRead():
     rxs = str(rx, 'utf-8').strip()
     data = rxs.split(',')
     if data[0] == 'key1':
-        print(data)
         ui.temp.display(data[1])
         ui.press.display(data[2])
         ui.hum.display(data[3])
         ui.delta.setText(data[4])
         ui.time.setText(data[5])
     if data[0] == 'key2':
-        print(data)
         ui.graph.plot([-60, -50, -40, -30, -20, -10],
                       [int(data[1]), int(data[2]), int(data[3]), int(data[4]), int(data[5]), int(data[6])])
-    print(data)
 
 def onOpen():
     serial.setPortName(ui.comList.currentText())
