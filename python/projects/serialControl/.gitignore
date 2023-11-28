@@ -7,6 +7,6 @@ $ cat .gitignore
 *.dsk
 *.bak
 *.gpi
-.vscode
 .idea
+venv
 bin
