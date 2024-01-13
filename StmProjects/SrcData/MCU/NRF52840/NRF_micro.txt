@@ -1,0 +1,1 @@
+https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840
