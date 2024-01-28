@@ -1,0 +1,1615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{6cc736c3-baaf-4408-ab18-86e5d158fbc8}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{3446b47c-3b34-4678-bf26-4551647fa13d}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{4e5cb940-0578-4214-8f0f-677b30b02347}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source files\mbed Files">
+      <UniqueIdentifier>{a3909748-61ce-4b21-a31c-5c71ce9a09b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\mbed Files\drivers Library">
+      <UniqueIdentifier>{81b804e3-4fd2-4bb2-8dea-45a002a59d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source files\mbed Files\rtos Library">
+      <UniqueIdentifier>{58cb6f31-ce8f-4a57-937d-b7c64e4f864c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\mbed Files">
+      <UniqueIdentifier>{8439e291-cf1b-4a04-b14f-56f8e1b2bf40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\mbed Files\drivers Library">
+      <UniqueIdentifier>{295d7c9f-b6c9-48db-8d94-1d9b371b1834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header files\mbed Files\rtos Library">
+      <UniqueIdentifier>{c10782d5-3d39-4bdf-b82b-5fa2b6d7b683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VisualGDB settings">
+      <UniqueIdentifier>{4ec6a756-79b7-46d8-8057-f490c73bef2a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LEDBlink.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <None Include="mbed.props">
+      <Filter>Source files\mbed Files</Filter>
+    </None>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_critical_section_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_flash_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_gpio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_itm_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_lp_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_pinmap_common.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_sleep_manager.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_us_ticker_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_application.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_assert.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_board.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_critical.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_error.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_error_hist.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_interface.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_mktime.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_sdk_boot.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_semihost_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_stats.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_wait_api_no_rtos.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\hal\mbed_lp_ticker_wrapper.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\ATCmdParser.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\CallChain.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\FileBase.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\FileHandle.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\FilePath.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\FileSystemHandle.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\LocalFileSystem.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_alloc_wrappers.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_mem_trace.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_poll.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_retarget.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_rtc_time.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\mbed_wait_api_rtos.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\platform\Stream.cpp">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\mbed_tz_context.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\common_rtc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\gpio_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\lp_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\pinmap.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\port_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\rtc_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\us_ticker.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\analogin_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\critical_section_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\flash_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\i2c_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\itm_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\object_owners.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\PeripheralPinsDefault.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\pinmap_ex.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\pwmout_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\reloc_vector_table.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\serial_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\sleep.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\spi_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\trng_api.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\PeripheralPins.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\cmsis_nvic.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\system_nrf52840.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\boards.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\ble_flash\ble_flash.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\clock\nrf_drv_clock.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\common\nrf_drv_common.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\comp\nrf_drv_comp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\gpiote\nrf_drv_gpiote.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_ecb.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_nvmc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_saadc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\i2s\nrf_drv_i2s.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\lpcomp\nrf_drv_lpcomp.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\pdm\nrf_drv_pdm.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\power\nrf_drv_power.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\ppi\nrf_drv_ppi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\pwm\nrf_drv_pwm.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\qdec\nrf_drv_qdec.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\qspi\nrf_drv_qspi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\radio_config\radio_config.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\rng\nrf_drv_rng.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\rtc\nrf_drv_rtc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\saadc\nrf_drv_saadc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\sdio\sdio.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\spi_master\nrf_drv_spi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\spi_slave\nrf_drv_spis.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\swi\nrf_drv_swi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\systick\nrf_drv_systick.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\timer\nrf_drv_timer.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\twis_slave\nrf_drv_twis.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\twi_master\nrf_drv_twi.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\uart\nrf_drv_uart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\usbd\nrf_drv_usbd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\wdt\nrf_drv_wdt.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic_fifo\nrf_atfifo.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\balloc\nrf_balloc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_backend_rtt.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_backend_serial.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_backend_uart.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_default_backends.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_frontend.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_str_formatter.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_memobj\nrf_memobj.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_section_vars\nrf_section_iter.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\fds\fds.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\fstorage\nrf_fstorage.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\queue\nrf_queue.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\strerror\nrf_strerror.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_error.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_error_weak.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_util_platform.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\nrf_assert.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_mapped_flags.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\ble\ble_radio_notification\ble_radio_notification.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\libraries\bootloader\dfu\nrf_dfu_mbr.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\libraries\fstorage\nrf_fstorage_sd.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_ant.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_ble.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_soc.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\TOOLCHAIN_GCC_ARM\startup_NRF52840.S">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\SysprogsGenerated\s140_nrf52840_5.0.0-2.alpha_softdevice.c">
+      <Filter>Source files\mbed Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\AnalogIn.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\BusIn.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\BusInOut.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\BusOut.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\CAN.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\Ethernet.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\FlashIAP.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\I2C.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\I2CSlave.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\InterruptIn.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\InterruptManager.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\MbedCRC.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\RawSerial.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\Serial.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\SerialBase.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\SPI.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\SPISlave.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\TableCRC.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\Ticker.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\Timeout.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\Timer.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\TimerEvent.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\drivers\UARTSerial.cpp">
+      <Filter>Source files\mbed Files\drivers Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_boot.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_rtx_handlers.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx4\cmsis_os1.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Config\RTX_Config.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_delay.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_evflags.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_evr.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_kernel.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_lib.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_memory.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_mempool.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_msgqueue.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_mutex.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_semaphore.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_system.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_thread.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_timer.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rt_OsEventObserver.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\Source\os_systick.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\Source\os_tick_ptim.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\TARGET_CORTEX_M\mbed_rtx_fault_handler.c">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\ConditionVariable.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\EventFlags.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\Kernel.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\Mutex.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\RtosTimer.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\Semaphore.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\Thread.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_rtx_idle.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\SysTimer.cpp">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\TARGET_CORTEX_M\TOOLCHAIN_GCC\except.S">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClCompile Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\TOOLCHAIN_GCC\TARGET_RTOS_M4_M7\irq_cm4f.S">
+      <Filter>Source files\mbed Files\rtos Library</Filter>
+    </ClCompile>
+    <ClInclude Include="$(BSP_ROOT)\mbed.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\mbed_cmsis_conf.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\RTE_Components.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\analogin_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\analogout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\buffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\can_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\can_helper.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\crc_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\critical_section_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\dma_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\ethernet_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\flash_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\gpio_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\gpio_irq_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\i2c_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\itm_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\lp_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\pinmap.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\port_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\pwmout_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\rtc_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\serial_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\sleep_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\spi_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\trng_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\us_ticker_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\storage_abstraction\Driver_Common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\hal\storage_abstraction\Driver_Storage.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\ATCmdParser.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\Callback.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\CallChain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\CircularBuffer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\critical.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\CriticalSectionLock.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\CThunk.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\DeepSleepLock.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\DirHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FileBase.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FileHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FileLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FilePath.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FileSystemHandle.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FileSystemLike.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\FunctionPointer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\LocalFileSystem.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_application.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_assert.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_critical.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_debug.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_error.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_error_hist.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_interface.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_mem_trace.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_mktime.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_poll.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_power_mgmt.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_preprocessor.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_retarget.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_rtc_time.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_semihost_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_sleep.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_stats.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_toolchain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\mbed_wait_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\NonCopyable.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\PlatformMutex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\rtc_time.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\ScopedLock.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\semihost_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\SingletonPtr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\sleep.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\Stream.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\toolchain.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\Transaction.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\platform\wait_api.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\arm_math.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_armcc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_armclang.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_compiler.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_gcc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_iccarm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\cmsis_version.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_armv8mbl.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_armv8mml.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm0.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm0plus.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm23.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm3.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm33.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm4.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cm7.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_cmSecureAccess.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_sc000.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\core_sc300.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\mpu_armv7.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\mpu_armv8.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\cmsis\TARGET_CORTEX_M\tz_context.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\mbed_rtx.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\common_rtc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\gpio_object.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\nrf5x_lf_clk_helper.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\objects.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\object_owners.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\PeripheralPins.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\pinmap_ex.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\us_ticker.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\PeripheralNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\PortNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\config\sdk_config.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\cmsis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\cmsis_nvic.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\device\system_nrf52840.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\TARGET_NRF52840_DK\device.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_NRF52\TARGET_MCU_NRF52840\TARGET_NRF52840_DK\PinNames.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\arduino_primo.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\boards.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\nrf6310.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10000.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10001.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10003.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10028.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10031.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10036.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10040.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca10056.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\pca20006.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\boards\wt51822.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\compiler_abstraction.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51422_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51802_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51822_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51_bitfields.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51_deprecated.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51_to_nrf52.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51_to_nrf52810.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf51_to_nrf52840.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52810.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52810_bitfields.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52810_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52832_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52840.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52840_bitfields.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52840_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52_bitfields.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52_name_change.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52_to_nrf52810.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\device\nrf52_to_nrf52840.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\ble_flash\ble_flash.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\clock\nrf_drv_clock.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\common\nrf_drv_common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\comp\nrf_drv_comp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\delay\nrf_delay.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\gpiote\nrf_drv_gpiote.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_clock.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_comp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_ecb.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_egu.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_gpio.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_gpiote.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_i2s.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_lpcomp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_nvmc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_pdm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_peripherals.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_power.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_ppi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_pwm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_qdec.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_qspi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_rng.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_rtc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_saadc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_spi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_spim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_spis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_systick.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_temp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_timer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_twi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_twim.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_twis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_uart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_uarte.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_usbd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\hal\nrf_wdt.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\i2s\nrf_drv_i2s.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\lpcomp\nrf_drv_lpcomp.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\pdm\nrf_drv_pdm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\power\nrf_drv_power.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\ppi\nrf_drv_ppi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\pwm\nrf_drv_pwm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\qdec\nrf_drv_qdec.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\qspi\nrf_drv_qspi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\radio_config\radio_config.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\rng\nrf_drv_rng.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\rtc\nrf_drv_rtc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\saadc\nrf_drv_saadc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\sdio\sdio.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\sdio\config\sdio_config.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\spi_master\nrf_drv_spi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\spi_slave\nrf_drv_spis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\swi\nrf_drv_swi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\systick\nrf_drv_systick.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\timer\nrf_drv_timer.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\twis_slave\nrf_drv_twis.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\twi_master\nrf_drv_twi.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\uart\nrf_drv_uart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\usbd\nrf_drv_usbd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\usbd\nrf_drv_usbd_errata.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\drivers_nrf\wdt\nrf_drv_wdt.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic\nrf_atomic.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic\nrf_atomic_internal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic\nrf_atomic_sanity_check.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic_fifo\nrf_atfifo.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\atomic_fifo\nrf_atfifo_internal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\balloc\nrf_balloc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_backend_interface.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_backend_rtt.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_backend_uart.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_ctrl.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_default_backends.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\nrf_log_str_formatter.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_backend_serial.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_ctrl_internal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_log\src\nrf_log_internal.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_memobj\nrf_memobj.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_section_vars\nrf_section.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\experimental_section_vars\nrf_section_iter.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\fds\fds.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\fds\fds_internal_defs.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\fstorage\nrf_fstorage.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\queue\nrf_queue.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\strerror\nrf_strerror.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_error.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_error_weak.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_util.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_util_bds.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\app_util_platform.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\nordic_common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\nrf_assert.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\nrf_bitmask.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_common.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_errors.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_macros.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_mapped_flags.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_os.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\libraries\util\sdk_resources.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\ble\ble_radio_notification\ble_radio_notification.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\libraries\bootloader\dfu\nrf_dfu_mbr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\libraries\bootloader\dfu\nrf_dfu_types.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\libraries\fstorage\nrf_fstorage_sd.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_ant.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_ble.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_COMMON\softdevice\common\nrf_sdh_soc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_err.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_gap.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_gatt.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_gattc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_gatts.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_hci.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_l2cap.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_ranges.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\ble_types.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_ble.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_error.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_error_sdm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_error_soc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_nvic.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_sdm.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_sd_def.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_soc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf_svc.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\targets\TARGET_NORDIC\TARGET_NRF5x\TARGET_SDK_14_2\TARGET_SOFTDEVICE_S140_FULL\headers\nrf52\nrf_mbr.h">
+      <Filter>Header files\mbed Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\AnalogIn.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\AnalogOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\BusIn.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\BusInOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\BusOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\CAN.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\DigitalIn.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\DigitalInOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\DigitalOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\Ethernet.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\FlashIAP.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\I2C.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\I2CSlave.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\InterruptIn.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\InterruptManager.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\LowPowerTicker.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\LowPowerTimeout.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\LowPowerTimer.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\MbedCRC.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\PortIn.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\PortInOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\PortOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\PwmOut.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\RawSerial.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\Serial.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\SerialBase.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\SerialWireOutput.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\SPI.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\SPISlave.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\TableCRC.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\Ticker.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\Timeout.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\Timer.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\TimerEvent.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\drivers\UARTSerial.h">
+      <Filter>Header files\mbed Files\drivers Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\ConditionVariable.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\EventFlags.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Kernel.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Mail.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\MemoryPool.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Mutex.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Queue.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\rtos.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\RtosTimer.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\rtos_idle.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Semaphore.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\Thread.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_rtos1_types.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_rtos_storage.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\mbed_rtx_conf.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\SysTimer.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx4\cmsis_os.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\Include\cmsis_os2.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\Include\os_tick.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Config\RTX_Config.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Include\rtx_evr.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Include\rtx_os.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_core_c.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_core_ca.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_core_cm.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rtx_lib.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\rtx5\RTX\Source\rt_OsEventObserver.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <ClInclude Include="$(BSP_ROOT)\rtos\TARGET_CORTEX\TARGET_CORTEX_M\mbed_rtx_fault_handler.h">
+      <Filter>Header files\mbed Files\rtos Library</Filter>
+    </ClInclude>
+    <None Include="EmbeddedProject1-Debug.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="EmbeddedProject1-Release.vgdbsettings">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+    <None Include="mbed.xml">
+      <Filter>VisualGDB settings</Filter>
+    </None>
+  </ItemGroup>
+</Project>

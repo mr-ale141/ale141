@@ -1,0 +1,1 @@
+python uf2conv.py EmbeddedProject1.hex -c -f 0xADA52840
