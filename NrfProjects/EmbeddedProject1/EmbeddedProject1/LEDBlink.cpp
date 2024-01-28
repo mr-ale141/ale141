@@ -1,9 +1,9 @@
 #include <mbed.h>
 #include <rtos.h>
 
-#define TIME_BEFOR_RED                     3000
-#define TIMEOUT_FOR_CAR                    5000
-#define HUMAN_TIME_GREEN_LIGHT             5000
+#define TIME_BLINK_BEFOR_RED               3000
+#define CAR_TIME_GREEN_LIGHT               5000
+#define HUMAN_TIME_GREEN_LIGHT             10000
 #define TIMEOUT_BETWEEN_TRAFIC_LIGHT       1000
 #define LOW                                0
 #define HIGH                               1
@@ -26,7 +26,7 @@ Semaphore carSemaphore(1);
 Semaphore humanSemaphore(1);
 Semaphore blinkSemaphore(1);
 
-bool needRoad = false;
+bool needRoadHuman = false;
 
 Thread threadCar;
 Thread threadHuman;
@@ -44,8 +44,8 @@ void carTrafficLightsHandler()
 		carTrafficLights.redLight = LOW;
 		carTrafficLights.yellowLight = LOW;
 		carTrafficLights.greenLight = HIGH;
-		Thread::wait(TIMEOUT_FOR_CAR);
-		needRoad = false;
+		Thread::wait(CAR_TIME_GREEN_LIGHT);
+		needRoadHuman = false;
 	}
 }
 
@@ -108,7 +108,7 @@ void humanTrafficLightsHandler()
 				humanTrafficLights.redLight = LOW;
 				humanTrafficLights.greenLight = HIGH;
 			}
-			Thread::wait(HUMAN_TIME_GREEN_LIGHT - TIME_BEFOR_RED);
+			Thread::wait(HUMAN_TIME_GREEN_LIGHT - TIME_BLINK_BEFOR_RED);
 			blinkSemaphore.release();
 		}
 	}
@@ -123,17 +123,13 @@ void buttonHandler()
 			if (button)
 			{
 				userLed = HIGH;
-				if (needRoad == false)
+				if (needRoadHuman == false)
 				{
 					humanSemaphore.release();
 				}
-				needRoad = true;
+				needRoadHuman = true;
 			}
-			int k = button.read();
-			while (k == HIGH)
-			{
-				k = button.read();
-			}
+			while (button) continue;
 			userLed = LOW;
 		}
 	}
