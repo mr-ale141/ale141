@@ -1,8 +1,8 @@
 #include <mbed.h>
 #include <rtos.h>
 
-#define TIME_BLINK_BEFOR_RED               3000
-#define CAR_TIME_GREEN_LIGHT               5000
+#define TIME_BLINK_GREEN_BEFOR_RED         3000
+#define CAR_MIN_TIME_GREEN_LIGHT           5000
 #define HUMAN_TIME_GREEN_LIGHT             10000
 #define TIMEOUT_BETWEEN_TRAFIC_LIGHT       1000
 #define LOW                                0
@@ -44,12 +44,12 @@ void carTrafficLightsHandler()
 		carTrafficLights.redLight = LOW;
 		carTrafficLights.yellowLight = LOW;
 		carTrafficLights.greenLight = HIGH;
-		Thread::wait(CAR_TIME_GREEN_LIGHT);
+		Thread::wait(CAR_MIN_TIME_GREEN_LIGHT);
 		needRoadHuman = false;
 	}
 }
 
-void blinkGreenAndRed()
+void blinkGreenBeforeRed()
 {
 	for (;;)
 	{
@@ -108,7 +108,7 @@ void humanTrafficLightsHandler()
 				humanTrafficLights.redLight = LOW;
 				humanTrafficLights.greenLight = HIGH;
 			}
-			Thread::wait(HUMAN_TIME_GREEN_LIGHT - TIME_BLINK_BEFOR_RED);
+			Thread::wait(HUMAN_TIME_GREEN_LIGHT - TIME_BLINK_GREEN_BEFOR_RED);
 			blinkSemaphore.release();
 		}
 	}
@@ -146,6 +146,6 @@ int main()
 
 	threadCar.start(carTrafficLightsHandler);
 	threadHuman.start(humanTrafficLightsHandler);
-	threadBlink.start(blinkGreenAndRed);
+	threadBlink.start(blinkGreenBeforeRed);
 	threadButton.start(buttonHandler);
 }
