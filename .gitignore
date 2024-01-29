@@ -9,4 +9,7 @@ $ cat .gitignore
 *.gpi
 .vscode
 .idea
+.vs
+.VC.db
+.VC.opendb
 bin

@@ -9,17 +9,17 @@
 #define HIGH                               1
 
 struct {
-	DigitalOut redLight = DigitalOut(P0_20, LOW);
-	DigitalOut yellowLight = DigitalOut(P0_22, LOW);
-	DigitalOut greenLight = DigitalOut(P0_24, HIGH);
+	DigitalOut red = DigitalOut(P0_20, LOW);
+	DigitalOut yellow = DigitalOut(P0_22, LOW);
+	DigitalOut green = DigitalOut(P0_24, HIGH);
 } carTrafficLights;
 
 struct {
-	DigitalOut redLight = DigitalOut(P1_0, HIGH);
-	DigitalOut greenLight = DigitalOut(P0_11, LOW);
+	DigitalOut red = DigitalOut(P1_0, HIGH);
+	DigitalOut green = DigitalOut(P0_11, LOW);
 } humanTrafficLights;
 
-DigitalIn button = DigitalIn(P1_1);
+InterruptIn button(P1_1);
 DigitalOut userLed = DigitalOut(P0_15);
 
 Semaphore carSemaphore(1);
@@ -31,7 +31,6 @@ bool needRoadHuman = false;
 Thread threadCar;
 Thread threadHuman;
 Thread threadBlink;
-Thread threadButton;
 
 void carTrafficLightsHandler()
 {
@@ -39,11 +38,11 @@ void carTrafficLightsHandler()
 	{
 		carSemaphore.wait();
 		Thread::wait(TIMEOUT_BETWEEN_TRAFIC_LIGHT);
-		carTrafficLights.yellowLight = HIGH;
+		carTrafficLights.yellow = HIGH;
 		Thread::wait(2000);
-		carTrafficLights.redLight = LOW;
-		carTrafficLights.yellowLight = LOW;
-		carTrafficLights.greenLight = HIGH;
+		carTrafficLights.red = LOW;
+		carTrafficLights.yellow = LOW;
+		carTrafficLights.green = HIGH;
 		Thread::wait(CAR_MIN_TIME_GREEN_LIGHT);
 		needRoadHuman = false;
 	}
@@ -54,40 +53,40 @@ void blinkGreenBeforeRed()
 	for (;;)
 	{
 		blinkSemaphore.wait();
-		if (carTrafficLights.greenLight)
+		if (carTrafficLights.green)
 		{
-			carTrafficLights.greenLight = LOW;
+			carTrafficLights.green = LOW;
 			Thread::wait(500);
-			carTrafficLights.greenLight = HIGH;
+			carTrafficLights.green = HIGH;
 			Thread::wait(500);
-			carTrafficLights.greenLight = LOW;
+			carTrafficLights.green = LOW;
 			Thread::wait(500);
-			carTrafficLights.greenLight = HIGH;
+			carTrafficLights.green = HIGH;
 			Thread::wait(500);
-			carTrafficLights.greenLight = LOW;
+			carTrafficLights.green = LOW;
 			Thread::wait(500);
-			carTrafficLights.greenLight = HIGH;
+			carTrafficLights.green = HIGH;
 			Thread::wait(500);
-			carTrafficLights.greenLight = LOW;
-			carTrafficLights.redLight = HIGH;
+			carTrafficLights.green = LOW;
+			carTrafficLights.red = HIGH;
 			humanSemaphore.release();
 		}
-		else if (humanTrafficLights.greenLight)
+		else if (humanTrafficLights.green)
 		{
-			humanTrafficLights.greenLight = LOW;
+			humanTrafficLights.green = LOW;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = HIGH;
+			humanTrafficLights.green = HIGH;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = LOW;
+			humanTrafficLights.green = LOW;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = HIGH;
+			humanTrafficLights.green = HIGH;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = LOW;
+			humanTrafficLights.green = LOW;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = HIGH;
+			humanTrafficLights.green = HIGH;
 			Thread::wait(500);
-			humanTrafficLights.greenLight = LOW;
-			humanTrafficLights.redLight = HIGH;
+			humanTrafficLights.green = LOW;
+			humanTrafficLights.red = HIGH;
 			carSemaphore.release();
 		}
 	}
@@ -98,15 +97,15 @@ void humanTrafficLightsHandler()
 	for (;;)
 	{
 		humanSemaphore.wait();
-		if (carTrafficLights.greenLight)
+		if (carTrafficLights.green)
 		{
 			blinkSemaphore.release();
 			humanSemaphore.wait();
 			Thread::wait(TIMEOUT_BETWEEN_TRAFIC_LIGHT);
-			if (carTrafficLights.redLight)
+			if (carTrafficLights.red)
 			{
-				humanTrafficLights.redLight = LOW;
-				humanTrafficLights.greenLight = HIGH;
+				humanTrafficLights.red = LOW;
+				humanTrafficLights.green = HIGH;
 			}
 			Thread::wait(HUMAN_TIME_GREEN_LIGHT - TIME_BLINK_GREEN_BEFOR_RED);
 			blinkSemaphore.release();
@@ -116,22 +115,11 @@ void humanTrafficLightsHandler()
 
 void buttonHandler()
 {
-	for (;;)
+	if (button)
 	{
-		if (button)
-		{
-			if (button)
-			{
-				userLed = HIGH;
-				if (needRoadHuman == false)
-				{
-					humanSemaphore.release();
-				}
-				needRoadHuman = true;
-			}
-			while (button) continue;
-			userLed = LOW;
-		}
+		if (needRoadHuman == false)
+			humanSemaphore.release();
+		needRoadHuman = true;
 	}
 }
 
@@ -147,5 +135,8 @@ int main()
 	threadCar.start(carTrafficLightsHandler);
 	threadHuman.start(humanTrafficLightsHandler);
 	threadBlink.start(blinkGreenBeforeRed);
-	threadButton.start(buttonHandler);
+	button.rise(&buttonHandler);
+
+	while (true)
+		userLed = button.read();
 }
