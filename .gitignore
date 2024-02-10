@@ -10,6 +10,6 @@ $ cat .gitignore
 .vscode
 .idea
 .vs
-.VC.db
-.VC.opendb
+*.VC.db
+*.VC.opendb
 bin
